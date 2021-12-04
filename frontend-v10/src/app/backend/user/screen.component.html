@@ -1,0 +1,61 @@
+<mat-card id="user.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="user"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="user.form">
+            <gc-checkbox-input id="user.U_ACTIVE" placeholder="Active user" fxFlex="60px" error="true" labelPosition="after" formControlName="U_ACTIVE"></gc-checkbox-input>
+            <gc-text-input id="user.U_NAME" placeholder="Username" fxFlex="60px" error="true" formControlName="U_NAME"></gc-text-input>
+            <mat-tab-group fxFlex="100">
+                <mat-tab label="General" id="user.tab.general" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-choice-input id="user.U_ROLE" placeholder="User role" fxFlex="60px" error="true" [items]="roleList" formControlName="U_ROLE"></gc-choice-input>
+                        <gc-text-input id="user.U_EMAIL" placeholder="E-Mail address" fxFlex="60px" error="true" formControlName="U_EMAIL"></gc-text-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Password" id="user.tab.password" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-password-input id="user.U_HASH_PASSWORD" placeholder="Password" fxFlex="60px" error="true" formControlName="U_HASH_PASSWORD"></gc-password-input>
+                        <gc-checkbox-input id="user.U_MUST_CHANGE" placeholder="Must change password" fxFlex="60px" error="true" labelPosition="after" formControlName="U_MUST_CHANGE"></gc-checkbox-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Personal" id="user.tab.personal" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-text-input id="user.U_FIRST_NAME" placeholder="First name" fxFlex="60px" error="true" formControlName="U_FIRST_NAME"></gc-text-input>
+                        <gc-text-input id="user.U_MIDDLE_NAME" placeholder="Middle name" fxFlex="60px" error="true" formControlName="U_MIDDLE_NAME"></gc-text-input>
+                        <gc-text-input id="user.U_LAST_NAME" placeholder="Last name" fxFlex="60px" error="true" formControlName="U_LAST_NAME"></gc-text-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Remark" id="user.tab.remark" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-monaco-editor id="user.U_REMARK" placeholder="Remark" fxFlex="98" language="markdown" [minimap]="true" error="true" formControlName="U_REMARK"></gc-monaco-editor>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Profile" id="user.tab.profile" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-choice-input id="user.U_LOCALE" placeholder="Locale" fxFlex="60px" error="true" [items]="languagesList" formControlName="U_LOCALE"></gc-choice-input>
+                        <gc-choice-input id="user.U_LISTITEMS" placeholder="Default view items" fxFlex="60px" error="true" [items]="U_LISTITEMSList" formControlName="U_LISTITEMS"></gc-choice-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Internal data" id="user.tab.internal_data" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-monaco-editor id="user.U_PROFILE" placeholder="Profile data" fxFlex="98" language="json" [minimap]="true" error="true" formControlName="U_PROFILE"></gc-monaco-editor>
+                    </mat-card>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="user.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="user.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

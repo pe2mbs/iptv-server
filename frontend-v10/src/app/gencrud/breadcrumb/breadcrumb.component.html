@@ -1,0 +1,28 @@
+<div class="gc-breadcrumb gc-widget">
+	<ul>
+		<li class="gc-breadcrumb-home" *ngIf="home_item">
+			<a [href]="home_item.url||'#'" 
+						class="gc-breadcrumb-item-link color-primary" 
+						(click)="itemClick( $event, home_item )">
+				<mat-icon>{{ home_item.label || 'home' }}</mat-icon>
+			</a>
+		</li>
+		<li class="gc-breadcrumb-chevron gc-breadcrumb-item-link color-primary">
+			<mat-icon>keyboard_arrow_right</mat-icon>
+		</li>
+		<ng-template ngFor let-item let-end="last" [ngForOf]="routeItems"> 
+			<li>
+				<a [href]="item.url || '#'" 
+						class="gc-breadcrumb-item-link color-primary" 
+						(click)="itemClick( $event, item )">
+					<span *ngIf="item.icon" class="gc-breadcrumb-item-icon">
+					</span>
+					<span class="gc-breadcrumb-item-text">{{ item.label }}</span>
+				</a>
+			</li>
+			<li class="gc-breadcrumb-chevron" *ngIf="!end">
+				<mat-icon>keyboard_arrow_right</mat-icon>
+			</li>
+		</ng-template>
+	</ul>
+</div>

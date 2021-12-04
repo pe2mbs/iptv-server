@@ -1,0 +1,5 @@
+SQLALCHEMY_DATABASE_URI:        sqlite:////opt/iptv_m3u/iptv-m3u-server/test.db
+SQLALCHEMY_TRACK_MODIFICATIONS: false
+TMP_M3U_FILE:                   /opt/iptv_m3u/iptv-m3u-server/data/my_channels_plus.m3u
+TMP_XMLTV_FILE:                 /opt/iptv_m3u/iptv-m3u-server/data/my_xmltv.xml
+SERVER_NAME:                    'turbo.pe2mbs.nl:5000'

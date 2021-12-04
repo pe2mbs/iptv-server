@@ -1,0 +1,50 @@
+/** Breadcrumb **/
+.gc-breadcrumb 
+{
+    margin: 0;
+	padding: 0;
+	padding-top: 12px;
+	height: 50px;
+	background-color: inherit;
+}
+
+.gc-breadcrumb ul 
+{
+    margin: 0;
+    padding: 0;
+}
+
+.gc-breadcrumb ul li 
+{
+    display: inline-block;
+    margin: 0 .25em;
+}
+
+a, 
+a:hover, 
+a:visited
+{
+	text-decoration: none !important;
+}
+
+.gc-breadcrumb-chevron, .gc-breadcrumb-home {
+    vertical-align: middle;
+}
+
+.gc-breadcrumb ul li .gc-breadcrumb-item-link {
+    text-decoration: none;
+}
+
+.gc-breadcrumb .gc-breadcrumb-item-icon {
+    margin-right: .25em;
+    vertical-align: middle;
+}
+
+.gc-breadcrumb .gc-breadcrumb-item-text {
+    vertical-align: middle;
+}
+
+.gc-widget
+{
+    box-sizing: border-box;
+}

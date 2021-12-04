@@ -1,0 +1,85 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           language_reference
+    title:                          Language Reference
+    class:                          LanguageReference
+    uri:                            /api/language_reference
+    actions:
+    -   name:                       new
+        icon:                       add
+        type:                       dialog
+        position:                   header
+        function:                   self.addRecord()
+    -   name:                       edit
+        icon:                       edit
+        type:                       dialog
+        position:                   row
+        function:                   self.editRecord( idx, row )
+        params:
+            LT_ID:                  row.LR_ID
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'LR_ID', 'Language text', 'TR_TEXT' )
+    table:
+        name:                       LANGUAGE_REFERENCE
+        columns:
+        -   field:                  LR_ID                       INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  LR_LA_ID                    INT             FOREIGN KEY LANGUAGE.LA_ID  NOT NULL
+            label:                  Language
+            filter:                 true
+            ui:
+                type:               choice
+                service:
+                    class:          Languages
+                    name:           languages
+                    value:          LA_ID
+                    label:          LA_LABEL
+            listview:
+                index:              0
+                width:              20%
+        -   field:                  TR_TEXT                     TEXT            NOT NULL
+            label:                  Text
+            ui:
+                type:               textbox
+            listview:
+                index:              1
+                width:              80%
+        -   field:                  LR_LT_ID                    INT             FOREIGN KEY LANGUAGE_TRANSLATES.LT_ID  NOT NULL
+            label:                  Reference
+            ui:
+                type:               choice
+                service:
+                    class:          LanguageTranslations
+                    name:           language_translates
+                    value:          LT_ID
+                    label:          LT_LABEL

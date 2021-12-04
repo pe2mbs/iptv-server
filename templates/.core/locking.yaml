@@ -1,0 +1,103 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           locking
+    title:                          Locks
+    remark:                         This is the locks maintenance screen
+    class:                          RecordLocks
+    uri:                            /api/locking
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        before:                     Parameters
+        after:                      Roles
+        menu:
+            caption:                DataBase
+            icon:                   data_usage
+            index:                  -1
+            menu:
+                caption:            Record locks
+                icon:               lock
+                route:              /locking
+                index:              1
+    actions:
+    -   name:                       new
+        type:                       none
+        position:                   none
+    -   name:                       edit
+        type:                       none
+        position:                   none
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'L_ID', 'User', 'L_USER'  )
+    mixin:
+        python:
+            view:
+                filename:           backend.locking.mixin.py
+                class:              RecordLocksViewMixin
+    table:
+        name:                       LOCKING
+        columns:
+        -   field:                  L_ID                        INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  L_USER                      TEXT            NOT NULL
+            label:                  Username
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              0
+                width:              50%
+
+        -   field:                  L_TABLE                     TEXT            NOT NULL
+            label:                  Table
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              1
+                width:              50%
+
+        -   field:                  L_RECORD_ID                 INT             NOT NULL
+            label:                  Table
+            readonly:               true
+            ui:
+                type:               textbox
+
+        -   field:                  L_START_DATE                DATETIME        NOT NULL
+            label:                  Start lock
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              2
+                width:              300px

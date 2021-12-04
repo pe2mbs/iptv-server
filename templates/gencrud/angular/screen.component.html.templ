@@ -1,0 +1,42 @@
+<mat-card id="${ obj.name }.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="${ obj.name }"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="${ obj.name }.form">
+% for field in obj.table.columns:
+ % if field.hasLabel() and not field.hasTab:
+            ${ field.angularUiInput() }
+ % endif
+% endfor
+% if obj.table.hasTabs():
+            <mat-tab-group fxFlex="100">
+%  for label in obj.table.tabs().labels:
+                <mat-tab label="${ label }" id="${obj.name}.tab.${ label.lower().replace(' ', '_' ) }" fxFlex="100">
+%   if obj.table.tabs().hasComponent( label ):
+                    <div fxLayout="column" class="max-box">
+                        <${obj.table.tabs().component( label )} fxFlex="98" ${obj.table.tabs().params( label ) }>
+                        </${obj.table.tabs().component( label )}>
+                    </div>
+%   else:
+                    <mat-card fxLayout="column" class="max-box">
+%    for field in obj.table.tabs().fieldsFor( label ):
+                        ${ field.angularUiInput() }
+%    endfor
+                    </mat-card>
+%   endif
+
+                </mat-tab>
+%  endfor
+            </mat-tab-group>
+% endif
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="${ obj.name }.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="${ obj.name }.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

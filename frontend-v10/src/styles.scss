@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import 'theme-light.scss';
+@import 'theme-dark.scss';
+@import 'theme-purple.scss';
+@import 'theme-equensworldline.scss';
+
+.standard-container 
+{
+	height: 100%; 
+	width: 100%; 
+}
+
+.mat-list-base
+{
+	padding: 0px!important;
+}
+
+.mat-list-item 
+{
+	padding: 0px;
+}
+
+.mat-list-item-content
+{ 
+	padding-left: 0px!important;
+	padding-right: 8px!important;
+}
+
+.mat-row
+{
+	min-height: 28px;
+	height: 28px;
+}

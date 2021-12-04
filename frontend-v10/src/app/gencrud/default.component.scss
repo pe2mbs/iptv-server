@@ -1,0 +1,30 @@
+:host 
+{ 
+	display: flex; 
+	flex-direction: column; 
+	height: 100%; 
+	overflow: hidden!important;
+}	
+
+::ng-deep .mat-drawer-inner-container 
+{	 
+	overflow: hidden!important;  
+}
+
+mat-drawer-container 
+{ 
+	height: 100%; 
+	overflow: hidden!important;
+}
+
+.mat-drawer 
+{ 
+	width: 260px; 
+	max-width: 300px; 
+	overflow: hidden!important; 
+}
+
+mat-drawer-content 
+{ 
+	padding-left: 5px; 
+}

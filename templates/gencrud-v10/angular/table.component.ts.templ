@@ -1,0 +1,241 @@
+/*
+#
+#   Python backend and Angular frontend code generation by gencrud
+#   Copyright (C) 2018-2020 Marc Bertens-Nguyen m.bertens@pe2mbs.nl
+#
+#   This library is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU Library General Public License GPL-2.0-only
+#   as published by the Free Software Foundation.
+#
+#   This library is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#   Library General Public License for more details.
+#
+#   You should have received a copy of the GNU Library General Public
+#   License GPL-2.0-only along with this library; if not, write to the
+#   Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#   Boston, MA 02110-1301 USA
+#
+#   gencrud: ${date} version ${version} by user ${username}
+*/
+import { Component, Input, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
+import { CustDataTableComponent } from 'src/app/gencrud/crud/cust.data.table.component';
+import { isNullOrUndefined } from 'util';
+import { TableDefintion } from 'src/app/gencrud/crud/model';
+import { ${ obj.cls }Record } from './model';
+% if obj.Mixin.Angular.hasTableComponent():
+import { ${obj.Mixin.Angular.TableComponent.cls} } from '${obj.Mixin.Angular.TableComponent.filename}';
+% endif
+% if ( obj.actions.get( 'new' ).type == 'dialog' and obj.actions.get( 'new' ).position != 'none' ) or ( obj.actions.get( 'edit' ).type == 'dialog' and obj.actions.get( 'edit' ).position != 'none' ):
+import { Dialog${ obj.cls }Component } from './dialog.component';
+% endif
+import { ${ obj.cls }DataService } from './service';
+% for field in obj.table.columns:
+ % if field.ui is not None and field.ui.isUiType( 'choice', 'choice-auto-complete', 'combo' ):
+   % if field.ui.service is not None:
+import { ${field.ui.service.cls} } from '${ field.ui.service.path }';
+   % endif
+ % endif
+% endfor
+
+
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: 'app-${ obj.name }-table',
+    template: `<app-cust-data-table
+				class="card-content"
+				[id]="id"
+				[value]="value"
+				[mode]="mode"
+				[definition]="definition">
+</app-cust-data-table>`,
+    styleUrls: [ '../../gencrud/common-mat-card.scss' ]
+})
+% if obj.Mixin.Angular.hasTableComponent():
+export class ${ obj.cls }TableComponent extends ${ obj.Mixin.Angular.TableComponent.cls }
+% else:
+export class ${ obj.cls }TableComponent
+% endif
+{
+    @ViewChild( CustDataTableComponent, { static: true } )	tableComponent: CustDataTableComponent;
+    @Input()	id: string;
+	@Input()	value: any;
+	@Input()	mode: string;
+
+    public definition: TableDefintion<${ obj.cls }Record> = {
+        toggleUpdate: ${ 'true' if obj.hasAutoUpdate() else 'false' },
+        name: '${ obj.cls }Table',
+		helpTopic: '${ obj.name }-table',
+		defaultSortField: '${ obj.table.orderBy[ 0 ] }',
+		defaultSortDirection: 'desc',
+		sortDisableClear: true,
+        headerButtons: [
+% for button in obj.actions.getHeaderButtons():
+			{
+				label: '${ button.label }',
+				icon: '${ button.icon }',
+				action: (core: any, self: any) => {
+					${ button.function };
+				}
+			},
+% endfor
+		],
+		footerButtons: [
+% for button in obj.actions.getFooterButtons():
+			{
+				label: '${ button.label }',
+				icon: '${ button.icon }',
+				action: (core: any, self: any) => {
+					${ button.function };
+				}
+			},
+% endfor
+		],
+        rowDoubleClick: (core: any, self: any, idx: number, row: ${ obj.cls }Record) => {
+% if obj.actions.get( 'edit' ).position == 'row':
+			${ obj.actions.get( 'edit' ).function };
+% endif
+		},
+		columns: [
+% for column in obj.table.listViewColumns:
+            {
+                columnDef: '${ column.name }',
+				header: ${ '"{}"'.format( column.label ) },
+				display: ${ 'true' if len( column.listview ) > 0 else 'false' },
+				width: "${ column.listview.get( 'width', '' ) }",
+				filter: ${ str( column.listview.get( 'filter', 'false' ) ).lower() },
+				sort: ${ str( column.listview.get( 'sort', 'false' ) ).lower() },
+%  if column.hasResolveList():
+				cell: (row: ${ obj.cls }Record) => row.${ column.name }_LABEL
+%  elif column.hasService():
+                cell: (row: ${ obj.cls }Record) => {
+                    return ( row.${ column.name }_FK.${ column.ui.service.label } );
+                }
+%  else:
+                cell: (row: ${ obj.cls }Record) => row.${ column.name }
+%  endif
+            },
+% endfor
+% if obj.actions.hasRowButtons():
+            {
+                columnDef: null,
+				display: true,
+				header: 'Options',
+				width: '70px',
+				cell: (row: ${ obj.cls }Record) => {},
+                buttons: [
+%  for button in obj.actions.getCellButtons():
+                    {
+						label: '${ button.label }',
+						icon: '${ button.icon }',
+						action: (core: any, self: any, idx: number, row: ${ obj.cls }Record) => {
+							${button.function};
+						}
+					},
+%  endfor
+                ]
+            }
+% endif
+        ]
+    };
+
+% if obj.Mixin.Angular.hasTableComponent():
+    constructor( dataService: ${ obj.cls }DataService
+               , profileService: GcProfileService
+               , dialog: MatDialog
+               , router: Router
+${ obj.externalService } )
+    {
+        super( dataService, profileService, dialog, router );
+% else:
+    constructor( dataService: ${ obj.cls }DataService
+               , profileService: GcProfileService
+               , protected dialog: MatDialog
+               , public router: Router )
+    {
+% endif
+        this.definition.dataService = dataService;
+		this.definition.profileService = profileService;
+		this.definition.dialog = dialog;
+		this.definition.self = this;
+        return;
+    }
+
+    public addRecord(): void
+	{
+	    console.log( 'addRecord()' );
+% if obj.actions.isDialog( 'new' ):
+        const newRecord = new ${ obj.cls }Record();
+        const options: MatDialogConfig = {
+            data: { record: newRecord,
+                    fixed: null,
+%  for key, value in obj.actions.get( 'new' ).params.items():
+                    ${key}: ${value},
+%  endfor
+                    mode: 'add'
+            },
+            width: "${ obj.actions.get( 'new' ).width }",
+%  if obj.actions.get( 'new' ).hasHeight():
+            height: "${ obj.actions.get( 'new' ).height }",
+%  endif
+        };
+        if ( !isNullOrUndefined( this.id ) && !isNullOrUndefined( this.value ) )
+		{
+		    options.data.fixed = {}
+			options.data.fixed[ this.id ] = this.value;
+		}
+        const dialogRef = this.dialog.open( Dialog${ obj.cls }Component, options );
+        dialogRef.afterClosed().subscribe( result =>
+        {
+            console.log( 'addNew() dialog result ', result );
+            this.tableComponent.refresh();
+        } );
+% else:
+        this.router.navigate( ['/${ obj.name }/edit'], {
+			queryParams: { mode: 'new' }
+		} );
+% endif
+		return;
+	}
+
+    public editRecord( idx: number, row: ${ obj.cls }Record ): void
+	{
+% if obj.actions.isDialog( 'edit' ):
+        this.definition.dataService.lockRecord( row );
+        const options: MatDialogConfig = {
+            data: { record: row,
+                    fixed: null,
+%  for key, value in obj.actions.get( 'edit' ).params.items():
+                    ${key}: ${value},
+%  endfor
+                    mode: 'edit'
+            },
+            width: "${ obj.actions.get( 'edit' ).width }",
+%  if obj.actions.get( 'edit' ).hasHeight():
+            height: "${ obj.actions.get( 'edit' ).height }",
+%  endif
+        };
+        if ( !isNullOrUndefined( this.id ) && !isNullOrUndefined( this.value ) )
+		{
+		    options.data.fixed = {}
+			options.data.fixed[ this.id ] = this.value;
+		}
+        const dialogRef = this.dialog.open( Dialog${ obj.cls }Component, options );
+        dialogRef.afterClosed().subscribe( result =>
+        {
+            console.log( 'editRecord() dialog result ', result );
+            this.definition.dataService.unlockRecord( row );
+            this.tableComponent.refresh();
+        } );
+% else:
+        this.router.navigate( ['/${ obj.name }/edit'], {
+			queryParams: { 	id: '${ obj.table.primaryKey }', mode: 'edit', value: row.${ obj.table.primaryKey } }
+		} );
+% endif
+        return;
+	}
+}

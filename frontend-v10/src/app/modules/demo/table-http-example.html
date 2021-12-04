@@ -1,0 +1,92 @@
+<mat-card id="table" class="standard-container">
+	<div>
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb class="align-paginator" 
+							fxFlex="grow">
+			</gc-breadcrumb>
+			<mat-paginator #top_paginator fxFlex="500px"
+							class="color-primary"
+							id="header.paginator"
+							(page)="pagingEvent( $event, 'top' )"
+							[length]="resultsLength"
+							[showFirstLastButtons]="true"
+							[pageIndex]="pageData.pageIndex"
+							[pageSize]="pageData.pageSize"
+							[pageSizeOptions]="pageData.pageSizeOptions">
+			</mat-paginator>
+			<div class="align-paginator" 
+					fxFlex="none" 
+					fxLayoutAlign="end">
+				<gc-help 	helpitem="tracking" 
+							fallback="table-overview" 
+							color="primary"></gc-help>
+				<button mat-icon-button color="primary"
+							(click)="refresh()" id="header.refresh">
+					<mat-icon aria-label="Refresh the view">refresh</mat-icon>
+				</button>
+			</div>
+		</div>
+	</div>
+	<mat-card-content class="card-content">
+		<mat-table  multiTemplateDataRows
+					class="mat-cell" 
+					[dataSource]="records"
+					matSort 
+					[matSortActive]="defaultSortField" 
+					[matSortDirection]="defaultSortDirection" 
+                    [matSortDisableClear]="sortDisableClear">
+			<mat-header-row *matHeaderRowDef="displayedColumns">
+			</mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;">
+			</mat-row>
+			<ng-container *ngFor="let col of tableColumns; let i = index" [attr.data-index]="i" 
+							[matColumnDef]="col.field">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>
+					<filter-header [title]="col.title" [field]="col.field" [filterRecord]="filterRecord">
+					</filter-header>
+				</mat-header-cell>
+				<mat-cell *matCellDef="let row;" 
+							[id]="'Tracking.' + col.field" 
+							(dblclick)="editRecord1( row )" 
+							style="width: 25%;">
+					{{ col.cell( row ) }} test
+				</mat-cell>
+			</ng-container>
+		</mat-table>
+    </mat-card-content>
+	<mat-card-footer style="margin-left: 5px; width: 100%;" >
+		<div fxFlex fxLayout="row">
+			<div fxFlex="grow">
+				<div id="spinner" 
+						*ngIf="isLoadingResults; else loading_done" 
+						class="loading-progress">
+					<mat-progress-bar mode="indeterminate">
+					</mat-progress-bar>
+				</div>
+				<ng-template #loading_done>
+					<div class="no-results" id="no-results" 
+						[style.display]="resultsLength == 0 ? '' : 'none'">
+						{{ 'No results' | translate }}
+					</div>
+				</ng-template>
+			</div>
+			<mat-paginator #bot_paginator fxFlex="500px"
+							class="color-primary"
+							id="botton.paginator"
+							[length]="resultsLength"
+							[showFirstLastButtons]="true"
+							(page)="pagingEvent( $event, 'bottom' )"
+							[pageIndex]="pageData.pageIndex"
+							[pageSize]="pageData.pageSize"
+							[pageSizeOptions]="pageData.pageSizeOptions">
+			</mat-paginator>
+			<div class="align-paginator" fxFlex fxLayoutAlign="end">
+				<button mat-icon-button color="primary"
+						id="refresh"
+						(click)="refresh()">
+					<mat-icon aria-label="Refresh the view">refresh</mat-icon>
+				</button>
+			</div>
+		</div>
+	</mat-card-footer>
+</mat-card>

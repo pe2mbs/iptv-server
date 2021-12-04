@@ -1,0 +1,12 @@
+- model: M3u
+  module: iptv.m3u
+  table: m3u
+- model: M3uAttr
+  module: iptv.m3u_attr
+  table: m3u_attr
+- model: Bouget
+  module: iptv.bougets
+  table: bougets
+- model: Channel
+  module: iptv.channels
+  table: channels

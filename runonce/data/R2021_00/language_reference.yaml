@@ -1,0 +1,132 @@
+-   lt_id: 1
+    lt_label: Change date time
+-   lt_id: 2
+    lt_label: Action
+-   lt_id: 3
+    lt_label: Change timestamp
+-   lt_id: 4
+    lt_label: Start lock
+-   lt_id: 5
+    lt_label: Description
+-   lt_id: 6
+    lt_label: Last name
+-   lt_id: 7
+    lt_label: E-Mail address
+-   lt_id: 8
+    lt_label: Languages
+-   lt_id: 9
+    lt_label: Dashboard
+-   lt_id: 10
+    lt_label: Users
+-   lt_id: 11
+    lt_label: Roles
+-   lt_id: 12
+    lt_label: Record locks
+-   lt_id: 13
+    lt_label: DataBase
+-   lt_id: 14
+    lt_label: Demo
+-   lt_id: 15
+    lt_label: Conditions
+-   lt_id: 16
+    lt_label: Is equal ==
+-   lt_id: 17
+    lt_label: Is not equal !=
+-   lt_id: 18
+    lt_label: Greater than >
+-   lt_id: 19
+    lt_label: Between
+-   lt_id: 20
+    lt_label: Startswith
+-   lt_id: 21
+    lt_label: Not contains
+-   lt_id: 22
+    lt_label: Field
+-   lt_id: 23
+    lt_label: Clear
+-   lt_id: 24
+    lt_label: News
+-   lt_id: 25
+    lt_label: Less or equal than <=
+-   lt_id: 26
+    lt_label: Contains
+-   lt_id: 27
+    lt_label: Is not empty
+-   lt_id: 28
+    lt_label: Value
+-   lt_id: 29
+    lt_label: Search
+-   lt_id: 30
+    lt_label: Greater or equal than >=
+-   lt_id: 31
+    lt_label: Is empty
+-   lt_id: 32
+    lt_label: No results
+-   lt_id: 33
+    lt_label: Record changes
+-   lt_id: 34
+    lt_label: Administration
+-   lt_id: 35
+    lt_label: User
+-   lt_id: 36
+    lt_label: Table
+-   lt_id: 37
+    lt_label: Endswith
+-   lt_id: 38
+    lt_label: Less than <
+-   lt_id: 39
+    lt_label: First name
+-   lt_id: 40
+    lt_label: Username
+-   lt_id: 41
+    lt_label: Translations
+-   lt_id: 42
+    lt_label: failed, again
+-   lt_id: 43
+    lt_label: Password
+-   lt_id: 44
+    lt_label: Login
+-   lt_id: 45
+    lt_label: Password is mandatory
+-   lt_id: 46
+    lt_label: Username is mandatory
+-   lt_id: 47
+    lt_label: Signup
+-   lt_id: 48
+    lt_label: Keep me signed in
+-   lt_id: 49
+    lt_label: Username must be 7 characters
+-   lt_id: 50
+    lt_label: Language
+-   lt_id: 51
+    lt_label: Role Access
+-   lt_id: 52
+    lt_label: Next page
+-   lt_id: 53
+    lt_label: Items per page
+-   lt_id: 54
+    lt_label: Previous page
+-   lt_id: 55
+    lt_label: First page
+-   lt_id: 56
+    lt_label: Page range
+-   lt_id: 57
+    lt_label: Last page
+-   lt_id: 58
+    lt_label: Label
+-   lt_id: 59
+    lt_label: Language code-2
+-   lt_id: 60
+    lt_label: Language code-3
+-   lt_id: 61
+    lt_label: Country code-2
+-   lt_id: 62
+    lt_label: Country code-3
+-   lt_id: 63
+    lt_label: Max. value
+-   lt_id: 64
+    lt_label: Min. Value
+-   lt_id: 65
+    lt_label: Lang. code-2
+-   lt_id: 66
+    lt_label: Lang. code-3

@@ -1,0 +1,23 @@
+<div id="languages" fxLayout="column">
+    <h3 mat-dialog-title id="languages.title">{{ mode }} Languages</h3>
+    <form fxLayout="column" (ngSubmit)="submit" [formGroup]="formGroup" id="languages.form">
+        <gc-text-input id="language.LA_LABEL" placeholder="Language" fxFlex="60px" error="true" formControlName="LA_LABEL"></gc-text-input>
+        <gc-text-input id="language.LA_CODE2" placeholder="Lang. code-2" fxFlex="60px" error="true" formControlName="LA_CODE2"></gc-text-input>
+        <gc-text-input id="language.LA_CODE3" placeholder="Lang. code-3" fxFlex="60px" error="true" formControlName="LA_CODE3"></gc-text-input>
+        <gc-text-input id="language.LA_COUNTRY_CODE2" placeholder="Country code-2" fxFlex="60px" error="true" formControlName="LA_COUNTRY_CODE2"></gc-text-input>
+        <gc-text-input id="language.LA_COUNTRY_CODE3" placeholder="Country code-3" fxFlex="60px" error="true" formControlName="LA_COUNTRY_CODE3"></gc-text-input>
+    </form>
+    <div mat-dialog-actions fxFlex="5">
+        <button mat-button
+                [type]="submit"
+                id="languages.submit"
+                [disabled]="!formGroup.valid"
+                [mat-dialog-close]="1"
+                (click)="onSaveClick()">Save</button>
+        <button mat-button
+                (click)="onCancelClick()"
+                id="languages.cancel"
+                tabindex="-1">Cancel</button>
+    </div>
+</div>
+

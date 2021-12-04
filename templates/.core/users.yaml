@@ -1,0 +1,212 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           user
+    title:                          Users
+    remark:                         This is the Users maintenance screen
+    class:                          User
+    uri:                            /api/user
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        menu:
+            caption:                Users
+            icon:                   accessibility
+            route:                  /user
+            index:                  1
+    actions:
+    -   name:                       new
+        label:                      New
+        type:                       screen
+        icon:                       add
+        position:                   header
+        function:                   self.addRecord()
+    -   name:                       edit
+        label:                      Edit
+        type:                       screen
+        icon:                       edit
+        position:                   row
+        function:                   self.editRecord( idx, row )
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'U_ID', 'User', 'U_NAME'  )
+    mixin:
+        python:
+            view:
+                class:              UserViewMixin
+                filename:           backend.user.mixin.py
+    table:
+        name:                       USER
+        tabs:
+            labels:
+            -   General
+            -   Password
+            -   Personal
+            -   Remark
+            -   Profile
+            -   Internal data
+        columns:
+        -   field:                  U_ID                        INT             AUTO NUMBER  PRIMARY KEY
+            ui:
+                type:               label
+        -   field:                  U_ACTIVE                    BOOLEAN         DEFAULT 0
+            label:                  Active user
+            hint:                   When a user is set active (checked) login is posible, otherwise login is not possible.
+            ui:
+                type:               checkbox
+        -   field:                  U_NAME                      CHAR( 30 )      NOT NULL
+            unique:                 true
+            hint:                   The user name used to identify at login to the application.
+            label:                  Username
+            ui:
+                type:               textbox
+            listview:
+                width:              150px
+                index:              0
+        -   field:                  U_ROLE                      INT             FOREIGN KEY ROLE.R_ID
+            label:                  User role
+            hint:                   The user role in the application
+            ui:
+                type:               choice
+                service:
+                    name:           role
+                    class:          Role
+                    value:          R_ID
+                    label:          R_ROLE
+            tab:
+                label:              General
+                index:              0
+        -   field:                  U_HASH_PASSWORD             CHAR( 255 )     NOT NULL
+            remark:                 This is the encrypted password for verification on login.
+            label:                  Password
+            ui:
+                type:               password
+            tab:
+                label:              Password
+                index:              0
+        -   field:                  U_MUST_CHANGE               BOOLEAN         DEFAULT 1
+            hint:                   When checked the user must change his password after next login.
+            label:                  Must change password
+            ui:
+                type:               checkbox
+            tab:
+                label:              Password
+                index:              1
+        -   field:                  U_FIRST_NAME                CHAR( 50 )      NOT NULL
+            hint:                   The user's name
+            label:                  First name
+            ui:
+                type:               textbox
+            listview:
+                width:              30%
+                index:              1
+            tab:
+                label:              Personal
+                index:              0
+        -   field:                  U_MIDDLE_NAME               CHAR( 50 )      DEFAULT NULL
+            hint:                   The user's additional names
+            label:                  Middle name
+            ui:
+                type:               textbox
+            tab:
+                label:              Personal
+                index:              1
+        -   field:                  U_LAST_NAME                 CHAR( 50 )      NOT NULL
+            hint:                   The user's surname
+            label:                  Last name
+            ui:
+                type:               textbox
+            listview:
+                width:              30%
+                index:              2
+            tab:
+                label:              Personal
+                index:              2
+        -   field:                  U_EMAIL                     CHAR( 100 )      NOT NULL
+            hint:                   The user's E-mail address used to send information messages.
+            label:                  E-Mail address
+            ui:
+                type:               textbox
+            listview:
+                width:              30%
+                index:              3
+            tab:
+                label:              General
+                index:              3
+        -   field:                  U_REMARK                    CLOB            DEFAULT NULL
+            label:                  Remark
+            hint:                   Miscellaneous information not related.
+            ui:
+                type:               editor
+                attributes:
+                    language:       markdown
+                    minimap:        ^true
+            tab:
+                label:              Remark
+                index:              0
+        -   field:                  U_LOCALE                    INT             DEFAULT 1
+            hint:                   The users locale (country and timezone).
+            label:                  Locale
+            ui:
+                type:               choice
+                service:
+                    name:           languages
+                    class:          Languages
+                    value:          LA_ID
+                    label:          LA_LABEL
+            tab:
+                label:              Profile
+                index:              0
+        -   field:                  U_LISTITEMS                 INT             DEFAULT 10
+            label:                  Default view items
+            hint:                   The default number of items shown in the data views
+            ui:
+                type:               choice
+                resolve-list:
+                    5:              5 Records
+                    10:             10 Records
+                    25:             25 Records
+                    100:            100 Records
+            tab:
+                label:              Profile
+                index:              1
+        -   field:                  U_PROFILE                    CLOB            DEFAULT NULL
+            label:                  Profile data
+            ui:
+                type:               editor
+                attributes:
+                    language:       json
+                    minimap:        ^true
+            tab:
+                label:              Internal data
+                index:              0

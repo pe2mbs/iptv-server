@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>Restore record</h1>
+<div mat-dialog-content>
+	<div *ngIf="restoreTable.length == 0; else elseHaveTable">
+		No records to restore or restore have no effect.
+	</div>
+	<ng-template #elseHaveTable>
+		<p>Are you sure to restore...</p>
+		<mat-accordion>
+			<mat-expansion-panel *ngFor="let record of restoreTable">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						{{ record.T_ACTION_LABEL }} {{ record.T_CHANGE_DATE_TIME }} by user {{ record.T_USER }} on table {{ record.T_TABLE }}
+					</mat-panel-title>
+					<mat-panel-description>
+						Action {{ actionRollback[ record.T_ACTION ] }}
+					</mat-panel-description>
+				</mat-expansion-panel-header>
+				<table>
+					<tr>
+						<th class="field">Field</th>
+						<th class="value">Value</th>
+					</tr>
+					<tr *ngFor="let item of (record.T_CONTENTS | keyvalue)">
+						<td class="field">{{ item.key }}</td>
+						<td class="value">{{ item.value }}</td>
+					</tr>
+				</table>
+			</mat-expansion-panel>
+		</mat-accordion>
+	</ng-template>
+</div>
+<div mat-dialog-actions>
+	<div *ngIf="restoreTable.length == 0; else elseHaveButtons">
+			<button mat-button (click)="onNoClick()">Close</button>
+	</div>
+	<ng-template #elseHaveButtons>
+	  	<button mat-button (click)="onNoClick()">No</button>
+	  	<button mat-button cdkFocusInitial (click)="onYesClick()">Yes</button>
+	</ng-template>
+</div>

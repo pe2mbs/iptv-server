@@ -1,0 +1,134 @@
+/*
+#
+#   Python backend and Angular frontend code generation by gencrud
+#   Copyright (C) 2018-2021 Marc Bertens-Nguyen m.bertens@pe2mbs.nl
+#
+#   This library is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU Library General Public License GPL-2.0-only
+#   as published by the Free Software Foundation.
+#
+#   This library is distributed in the hope that it will be useful, but
+#   WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+#   Library General Public License for more details.
+#
+#   You should have received a copy of the GNU Library General Public
+#   License GPL-2.0-only along with this library; if not, write to the
+#   Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+#   Boston, MA 02110-1301 USA
+#
+#   gencrud: ${date} version ${version} by user ${username}
+*/
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, RouterLink, Router } from '@angular/router';
+import { GcScreenBase } from 'src/app/gencrud/crud/crud.screen.base';
+import { ${obj.cls}DataService } from './service';
+import { ${obj.cls}Record } from './model';
+
+% for field in obj.table.columns:
+ % if field.ui is not None and ( field.ui.isUiType( 'choice', 'choice-auto-complete', 'combo' ) ):
+import { GcSelectList } from 'src/app/gencrud/crud/model';
+<%
+    break
+%>
+ % endif
+% endfor
+% for field in obj.table.columns:
+ % if field.ui is not None and field.ui.hasService():
+   % if field.ui.service is not None:
+import { ${ field.ui.service.cls } } from '${ field.ui.service.path }';
+   % endif
+ % endif
+% endfor
+
+@Component({
+    // tslint:disable-next-line:component-selector
+    selector: 'app-${obj.name}-screen',
+    templateUrl: './screen.component.html',
+    styleUrls: [ '../../gencrud/common-mat-card.scss' ]
+})
+export class Screen${obj.cls}Component extends GcScreenBase<${obj.cls}Record> implements OnInit
+{
+% for field in obj.table.columns:
+%  if field.ui is not None:
+%   if field.ui.isUiType( 'password' ):
+    public hide_${ field.name }: boolean  = true;
+%   elif field.ui is not None:
+%    if field.ui.hasService():
+    public ${ field.ui.service.name }List: GcSelectList[];
+%    elif field.ui.hasResolveList():
+    public ${ field.name }List = ${ field.ui.typescriptResolveList() };
+%    endif
+%   endif
+%  endif
+% endfor
+
+    constructor( route: ActivatedRoute
+               , dataService: ${obj.cls}DataService
+${ obj.externalService }  )
+    {
+        super( route, dataService );
+        this.row = new ${obj.cls}Record();
+        this.formGroup = new FormGroup( {
+% for field in obj.table.columns:
+%  if field.hasLabel():
+            ${ field.name }: new FormControl( this.row.${ field.name } || ${ field.initValue },
+                                              ${ field.validators } ),
+%  endif
+% endfor
+        } );
+        return;
+    }
+
+    ngOnInit()
+    {
+        super.ngOnInit();
+% for field in obj.table.columns:
+%  if field.ui is not None:
+%   if field.ui.hasService():
+        this.registerSubscription( this.${ field.ui.service.name }Service.getSelectList( '${ field.ui.service.value }'
+                                    , '${ field.ui.service.label }'
+%    if field.ui.service.hasInitial():
+                                    , ${ field.ui.service.initial }
+%    endif
+%    if field.ui.service.hasFinal():
+                                    , ${ field.ui.service.final }
+%    endif
+                                     ).subscribe( dataList => {
+            this.${ field.ui.service.name }List = dataList;
+        } ) );
+%   endif
+%  endif
+% endfor
+        return;
+    }
+
+    protected updateFormGroup( record: ${obj.cls}Record ): void
+	{
+		this.formGroup.patchValue( {
+% for field in obj.table.columns:
+%  if field.hasLabel():
+            ${ field.name }: this.row.${ field.name },
+%  endif
+% endfor
+		} );
+		return;
+	}
+
+% for field in obj.table.columns:
+%  if field.isPrimaryKey():
+    public get ${ field.name }()
+    {
+        return ( this.row.${ field.name } );
+    }
+
+%  elif field.frontend:
+    public get ${ field.name }()
+    {
+        return ( this.formGroup.get( '${ field.name }' ) );
+    }
+
+%  endif
+% endfor
+}

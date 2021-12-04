@@ -1,0 +1,63 @@
+//include material theming
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define an purple theme.
+$purple-primary: 	mat-palette($mat-purple);
+$purple-accent:  	mat-palette($mat-amber, A200, A100, A400);
+$purple-warn:    	mat-palette($mat-deep-orange);
+$purple-app-theme:	mat-dark-theme($purple-primary, $purple-accent, $purple-warn);
+
+.purple-theme
+{
+    @include angular-material-theme($purple-app-theme);
+	$background: map-get($purple-app-theme, background);
+
+    .mat-header-row
+    {
+        background-color: #9c27b0;
+        color: white;
+    }
+    
+    .mat-row:nth-child( even )
+    {
+        background-color: #666666;
+        color: white;
+    }
+
+    .mat-row:nth-child( odd )
+    {
+        background-color: #797878;
+        color: white;
+    }
+
+    .mat-card
+    {
+        background-color: #424242;
+        color: white;
+    }
+
+    .ui-breadcrumb, .ui-menuitem-link, .ui-breadcrumb ul li .ui-menuitem-link
+    {
+        background-color: #424242;
+        color: white;
+    }
+
+	.color-primary
+	{
+		background-color: #424242;
+        color: white !important;
+	}
+
+	.color-accent
+	{
+		background-color: #424242;
+        color: mat-color( $dark-app-accent ) !important;
+	}
+
+	.color-warn
+	{
+		background-color:mat-color($background, background);
+        color: mat-color( $dark-app-warn ) !important;
+	}
+}

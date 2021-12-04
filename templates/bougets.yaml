@@ -1,0 +1,49 @@
+project_defaults:                   !include iptv-defaults.yaml
+objects:
+  -   name:                         bougets
+      title:                        Bouget
+      remark: >
+        An M3U file is a plain text file that specifies the locations of one
+        or more media files. The file is saved with the "m3u" filename extension
+        if the text is encoded in the local system's default non-Unicode encoding
+        (e.g., a Windows codepage), or with the "m3u8" extension if the text is
+        UTF-8 encoded.
+      class:                        Bouget
+      uri:                          /api/bougets
+      menu:
+        caption:                    Bougets
+        icon:                       settings
+        index:                      1
+        route:                      /bougets
+      actions:
+        -   name:                   new
+            label:                  New
+            type:                   screen
+            icon:                   add
+            position:               header
+            function:               self.addRecord()
+        -   name:                   edit
+            label:                  Edit
+            type:                   screen
+            icon:                   edit
+            position:               row
+            function:               self.editRecord( idx, row )
+        -   name:                   delete
+            label:                  Delete
+            type:                   dialog
+            icon:                   delete
+            position:               cell
+            function:               core.deleteRecord( idx, row, 'B_ID', 'Bouget', 'B_LABEL'  )
+      table:
+        name:                       BOUGETS
+        columns:
+          -   field:                B_ID                INT           AUTO NUMBER  PRIMARY KEY
+          -   field:                B_LABEL             CHAR( 30 )    NOT NULL
+              label:                Label
+              ui:
+                type:               textbox
+              listview:
+                index:              0
+                width:              100%
+                sort:               true
+                filter:             true

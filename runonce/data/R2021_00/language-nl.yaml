@@ -1,0 +1,198 @@
+- lr_la_id: 2
+  lr_lt_id: 1
+  tr_text: Wijziging datum en tijd
+- lr_la_id: 2
+  lr_lt_id: 2
+  tr_text: Actie
+- lr_la_id: 2
+  lr_lt_id: 3
+  tr_text: Wijziging datum en tijd
+- lr_la_id: 2
+  lr_lt_id: 4
+  tr_text: Begin slot
+- lr_la_id: 2
+  lr_lt_id: 5
+  tr_text: Beschrijving
+- lr_la_id: 2
+  lr_lt_id: 6
+  tr_text: Achternaam
+- lr_la_id: 2
+  lr_lt_id: 7
+  tr_text: E-mailadres
+- lr_la_id: 2
+  lr_lt_id: 8
+  tr_text: Talen
+- lr_la_id: 2
+  lr_lt_id: 9
+  tr_text: Dashboard
+- lr_la_id: 2
+  lr_lt_id: 10
+  tr_text: Gebruikers
+- lr_la_id: 2
+  lr_lt_id: 11
+  tr_text: Rollen
+- lr_la_id: 2
+  lr_lt_id: 12
+  tr_text: Record slot
+- lr_la_id: 2
+  lr_lt_id: 13
+  tr_text: Database
+- lr_la_id: 2
+  lr_lt_id: 14
+  tr_text: Demo
+- lr_la_id: 2
+  lr_lt_id: 15
+  tr_text: Condities
+- lr_la_id: 2
+  lr_lt_id: 16
+  tr_text: Gelijk ==
+- lr_la_id: 2
+  lr_lt_id: 17
+  tr_text: Niet gelijk !=
+- lr_la_id: 2
+  lr_lt_id: 18
+  tr_text: Groter dan >
+- lr_la_id: 2
+  lr_lt_id: 19
+  tr_text: Tussen
+- lr_la_id: 2
+  lr_lt_id: 20
+  tr_text: Begint met
+- lr_la_id: 2
+  lr_lt_id: 21
+  tr_text: Bevat niet
+- lr_la_id: 2
+  lr_lt_id: 22
+  tr_text: Veld
+- lr_la_id: 2
+  lr_lt_id: 23
+  tr_text: Verwijder
+- lr_la_id: 2
+  lr_lt_id: 24
+  tr_text: News
+- lr_la_id: 2
+  lr_lt_id: 25
+  tr_text: Minder of gelijk aan <=
+- lr_la_id: 2
+  lr_lt_id: 26
+  tr_text: Bevat
+- lr_la_id: 2
+  lr_lt_id: 27
+  tr_text: Niet leeg
+- lr_la_id: 2
+  lr_lt_id: 28
+  tr_text: Waarde
+- lr_la_id: 2
+  lr_lt_id: 29
+  tr_text: Zoeken
+- lr_la_id: 2
+  lr_lt_id: 30
+  tr_text: Groter of gelijk aan >=
+- lr_la_id: 2
+  lr_lt_id: 31
+  tr_text: Is leeg
+- lr_la_id: 2
+  lr_lt_id: 32
+  tr_text: Geen resultaaten gevonden
+- lr_la_id: 2
+  lr_lt_id: 33
+  tr_text: Record veranderingen
+- lr_la_id: 2
+  lr_lt_id: 34
+  tr_text: Administratie
+- lr_la_id: 2
+  lr_lt_id: 35
+  tr_text: Gebruiker
+- lr_la_id: 2
+  lr_lt_id: 36
+  tr_text: Tabel
+- lr_la_id: 2
+  lr_lt_id: 37
+  tr_text: Eindigd op
+- lr_la_id: 2
+  lr_lt_id: 38
+  tr_text: Minder dan <
+- lr_la_id: 2
+  lr_lt_id: 39
+  tr_text: Voornaam
+- lr_la_id: 2
+  lr_lt_id: 40
+  tr_text: Gebruikersnaam
+- lr_la_id: 2
+  lr_lt_id: 41
+  tr_text: Vertalingen
+- lr_la_id: 2
+  lr_lt_id: 42
+  tr_text: Fout, opnieuw
+- lr_la_id: 2
+  lr_lt_id: 43
+  tr_text: Wachtwoord
+- lr_la_id: 2
+  lr_lt_id: 44
+  tr_text: Log in
+- lr_la_id: 2
+  lr_lt_id: 45
+  tr_text: Wachtwoord is verplicht
+- lr_la_id: 2
+  lr_lt_id: 46
+  tr_text: Gebruiker naam is verplicht
+- lr_la_id: 2
+  lr_lt_id: 47
+  tr_text: Aanmelden
+- lr_la_id: 2
+  lr_lt_id: 48
+  tr_text: Blijf ingelogt
+- lr_la_id: 2
+  lr_lt_id: 49
+  tr_text: Gebruiker naam moet moet minimaal 7 karakters bevatten
+- lr_la_id: 2
+  lr_lt_id: 50
+  tr_text: Taal
+- lr_la_id: 2
+  lr_lt_id: 51
+  tr_text: Rol toegang
+- lr_la_id: 2
+  lr_lt_id: 52
+  tr_text: Volgende pagina
+- lr_la_id: 2
+  lr_lt_id: 53
+  tr_text: Items per pagina
+- lr_la_id: 2
+  lr_lt_id: 54
+  tr_text: Vorige pagina
+- lr_la_id: 2
+  lr_lt_id: 55
+  tr_text: Eerste pagina
+- lr_la_id: 2
+  lr_lt_id: 56
+  tr_text: van
+- lr_la_id: 2
+  lr_lt_id: 57
+  tr_text: Laatste pagina
+- lr_la_id: 2
+  lr_lt_id: 58
+  tr_text: Label
+- lr_la_id: 2
+  lr_lt_id: 59
+  tr_text: Taal code-2
+- lr_la_id: 2
+  lr_lt_id: 60
+  tr_text: Taal code-3
+- lr_la_id: 2
+  lr_lt_id: 61
+  tr_text: Land code-2
+- lr_la_id: 2
+  lr_lt_id: 62
+  tr_text: Lang code-3
+- lr_la_id: 2
+  lr_lt_id: 63
+  tr_text: Max. waarde
+- lr_la_id: 2
+  lr_lt_id: 64
+  tr_text: Min. waarde
+- lr_la_id: 2
+  lr_lt_id: 65
+  tr_text: Taal code-2
+- lr_la_id: 2
+  lr_lt_id: 66
+  tr_text: Taal code-3

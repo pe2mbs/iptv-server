@@ -1,0 +1,79 @@
+project_defaults:                   !include iptv-defaults.yaml
+objects:
+  -   name:                         channels
+      title:                        Channels
+      remark: >
+        An M3U file is a plain text file that specifies the locations of one
+        or more media files. The file is saved with the "m3u" filename extension
+        if the text is encoded in the local system's default non-Unicode encoding
+        (e.g., a Windows codepage), or with the "m3u8" extension if the text is
+        UTF-8 encoded.
+      class:                        Channel
+      uri:                          /api/channels
+      menu:
+        caption:                    Channels
+        icon:                       settings
+        index:                      0
+        route:                      /channels
+      actions:
+        -   name:                   new
+            label:                  New
+            type:                   screen
+            icon:                   add
+            position:               header
+            function:               self.addRecord()
+        -   name:                   edit
+            label:                  Edit
+            type:                   screen
+            icon:                   edit
+            position:               row
+            function:               self.editRecord( idx, row )
+        -   name:                   delete
+            label:                  Delete
+            type:                   dialog
+            icon:                   delete
+            position:               cell
+            function:               core.deleteRecord( idx, row, 'CH_ID', 'Channel', 'CH_TITLE'  )
+      table:
+        name:                       CHANNELS
+        columns:
+          -   field:                CH_ID               INT             AUTO NUMBER  PRIMARY KEY
+          -   field:                CH_NUMBER           INT             NULL
+              label:                Number
+              ui:
+                type:               number
+              listview:
+                index:              0
+                width:              10%
+                sort:               true
+          -   field:                CH_TITLE            CHAR( 255 )     NOT NULL
+              label:                Title
+              ui:
+                type:               textbox
+              listview:
+                index:              0
+                width:              90%
+                sort:               true
+                filter:             true
+          -   field:                CH_ENABLED          BOOLEAN         DEFAULT 0
+              label:                Enabled
+              ui:
+                type:               checkbox
+          -   field:                CH_M_ID             INT             FOREIGN KEY M3U.M_ID      NULL
+              label:                Media data
+              ui:
+                type:               choice
+                service:
+                  class:            M3u
+                  name:             m3u
+                  value:            M_ID
+                  label:            M_TITLE
+          -   field:                CH_B_ID             INT             FOREIGN KEY BOUGETS.B_ID  NULL
+              label:                Bouget
+              ui:
+                type:               choice
+                service:
+                  class:            Bouget
+                  name:             bougets
+                  value:            B_ID
+                  label:            B_LABEL

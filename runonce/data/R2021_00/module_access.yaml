@@ -1,0 +1,27 @@
+-   ma_id: 1
+    ma_module: '*'
+    ma_description: All modules
+-   ma_id: 2
+    ma_module: user
+    ma_description: Users
+-   ma_id: 3
+    ma_module: role
+    ma_description: Roles
+-   ma_id: 4
+    ma_module: languages
+    ma_description: Languages
+-   ma_id: 5
+    ma_module: language_translates
+    ma_description: Translations
+-   ma_id: 6
+    ma_module: locking
+    ma_description: Locking
+-   ma_id: 7
+    ma_module: news
+    ma_description: News
+-   ma_id: 8
+    ma_module: tracking
+    ma_description: Tracking
+-   ma_id: 9
+    ma_module: role_access
+    ma_description: Role access

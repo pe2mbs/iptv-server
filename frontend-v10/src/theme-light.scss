@@ -1,0 +1,39 @@
+//include material theming
+@import '~@angular/material/theming';
+@include mat-core();
+
+// Define the light theme
+$light-app-primary: mat-palette($mat-blue);
+$light-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$light-app-warn:   	mat-palette($mat-red);
+$light-app-theme:   mat-light-theme($light-app-primary, $light-app-accent, $light-app-warn);
+
+.light-theme
+{
+    @include angular-material-theme($light-app-theme);
+	$background: map-get($light-app-theme, background);
+
+    .mat-toolbar.mat-primary 
+    {
+        background: white;
+        color: black;
+	}
+	
+	.color-primary
+	{
+		background-color: mat-color($background, background);
+        color: black !important;
+	}
+
+	.color-accent
+	{
+		background-color: mat-color($background, background);
+        color: mat-color( $light-app-accent ) !important;
+	}
+
+	.color-warn
+	{
+		background-color:mat-color($background, background);
+        color: mat-color( $light-app-warn ) !important;
+	}
+}

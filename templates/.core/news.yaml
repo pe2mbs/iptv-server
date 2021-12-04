@@ -1,0 +1,150 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           news
+    title:                          News
+    class:                          News
+    uri:                            /api/news
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        menu:
+            caption:                News
+            icon:                   group_work
+            route:                  /news
+            index:                  1
+    actions:
+    -   name:                       new
+        label:                      New
+        type:                       screen
+        icon:                       add
+        position:                   header
+        function:                   self.addRecord()
+    -   name:                       edit
+        label:                      Edit
+        type:                       screen
+        icon:                       edit
+        position:                   row
+        function:                   self.editRecord( idx, row )
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'N_ID', 'News message', 'N_MESSAGE'  )
+    mixin:
+        python:
+            view:
+                class: NewsMixinInterface
+                filename: backend.news.mixin.py
+    table:
+        name:                       NEWS
+        tabs:
+            labels:
+            -   Details
+            -   Remark
+        columns:
+        -   field:                  N_ID                        INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  N_MESSAGE                   CHAR( 255 )     NOT NULL
+            label:                  Description
+            ui:
+                type:               textbox
+            listview:
+                index:              1
+                width:              50%
+        -   field:                  N_ACTIVE                    BOOLEAN         DEFAULT 0
+            label:                  Active
+            ui:
+                type:               checkbox
+                resolve-list:
+                    true:           "Yes"
+                    false:          "No"
+            listview:
+                index:              0
+                width:              7%
+            tab:
+                label:              Details
+                index:              0
+        -   field:                  N_ALERT                     BOOLEAN         DEFAULT 0
+            label:                  Alert
+            ui:
+                type:               checkbox
+                resolve-list:
+                    true:           "Yes"
+                    false:          "No"
+            listview:
+                index:              2
+                width:              10%
+            tab:
+                label:              Details
+                index:              1
+        -   field:                  N_KEEP                      BOOLEAN         DEFAULT 0
+            label:                  No Delete
+            ui:
+                type:               checkbox
+                resolve-list:
+                    true:           "Yes"
+                    false:          "No"
+            listview:
+                index:              3
+                width:              10%
+            tab:
+                label:              Details
+                index:              2
+        -   field:                  N_START_DATE                DATE            NOT NULL
+            label:                  Start date
+            ui:
+                type:               date
+            listview:
+                index:              4
+                width:              10%
+            tab:
+                label:              Details
+                index:              3
+        -   field:                  N_END_DATE                  DATE            NULL
+            label:                  End date
+            ui:
+                type:               date
+            listview:
+                index:              5
+                width:              10%
+            tab:
+                label:              Details
+                index:              4
+        -   field:                  N_REMARK                    CLOB            NULL
+            label:                  Remark
+            hint:                   Miscellaneous information not related.
+            ui:
+                type:               editor
+                attributes:
+                    language:       markdown
+                    minimap:        ^true
+            tab:
+                label:              Remark

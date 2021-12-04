@@ -1,0 +1,5 @@
+SQLALCHEMY_DATABASE_URI: sqlite:////home/mbertens/src/python/iptv_m3u_server/test.db
+SQLALCHEMY_TRACK_MODIFICATIONS: false
+ANGULAR_PATH: /home/mbertens/src/python/iptv_m3u_server/frontend/dist/frontend
+TMP_M3U_FILE: /home/mbertens/src/python/iptv_m3u_server/data/my_channels_plus.m3u
+TMP_XMLTV_FILE: /home/mbertens/src/python/iptv_m3u_server/data/my_xmltv.xml

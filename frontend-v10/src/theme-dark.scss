@@ -1,0 +1,68 @@
+//include material theming
+@import '~@angular/material/theming';
+@include mat-core();
+
+$dark-app-primary: 	mat-palette($mat-blue-grey);
+$dark-app-accent:  	mat-palette($mat-amber, A200, A100, A400);
+$dark-app-warn:    	mat-palette($mat-deep-orange);
+$dark-app-theme:   	mat-dark-theme($dark-app-primary, $dark-app-accent, $dark-app-warn);
+
+.dark-theme
+{
+    @include angular-material-theme($dark-app-theme);
+	$background: map-get($dark-app-theme, background);
+	
+    .mat-header-row
+    {
+        background-color: #607d8b;
+        color: white;
+    }
+    
+    .mat-row:nth-child( even )
+    {
+        background-color: #666666;
+        color: white;
+    }
+
+    .mat-row:nth-child( odd )
+    {
+        background-color: #797878;
+        color: white;
+    }
+
+    .mat-card
+    {
+        background-color: #424242;
+        color: white;
+    }
+
+    .ui-breadcrumb, .ui-menuitem-link, .ui-breadcrumb ul li .ui-menuitem-link
+    {
+        background-color: #424242;
+        color: white !important;
+	}
+	
+	.no-results
+    {
+        background-color: mat-color($background, background);
+        color: mat-color( $dark-app-warn )
+	}
+	
+	.color-primary
+	{
+		background-color: #424242;
+        color: white !important;
+	}
+
+	.color-accent
+	{
+		background-color: #424242;
+        color: mat-color( $dark-app-accent ) !important;
+	}
+
+	.color-warn
+	{
+		background-color:mat-color($background, background);
+        color: mat-color( $dark-app-warn ) !important;
+	}
+}

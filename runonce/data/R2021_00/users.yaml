@@ -1,0 +1,22 @@
+-   u_id: 1
+    u_active: 1
+    u_name: testing
+    u_role: 1
+    u_hash_password: testing
+    u_must_change: 0
+    u_first_name: test
+    u_last_name: testing
+    u_email: test@example.com
+    u_locale: 1
+    u_listitems: 10 }
+-   u_id: 2
+    u_active: 1
+    u_name: testuser
+    u_role: 1
+    u_hash_password: testuser1@A
+    u_must_change: 0
+    u_first_name: test
+    u_last_name: hello
+    u_email: test@example.com
+    u_locale: 1
+    u_listitems: 10

@@ -1,0 +1,39 @@
+<mat-dialog-content>
+	<div>
+		<div fxFlex="column">
+			<h2 fxFlex="92" mat-card-title>{{ 'Login' | translate }}</h2>
+			<gc-lang-switcher fxFlex="8"></gc-lang-switcher>
+		</div>
+	</div>
+	<form [formGroup]="loginForm" novalidate class="login-form">
+		<mat-form-field class="form-field">
+			<!-- hieronder de formControlName zoals in de formgroup is beschreven -->
+			<input matInput [placeholder]="'Username' | translate" formControlName="userid" [formControl]="userid">
+			<mat-error *ngIf="userid.hasError('minlength') || userid.hasError('maxlength')">
+				{{ 'Username must be 7 characters' | translate }}
+			</mat-error>
+			<mat-error *ngIf="userid.hasError('required')">
+				{{ 'Username is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="form-field">
+			<input matInput [type]="showPw ? 'text' : 'password'" [placeholder]="'Password' | translate" formControlName='password'>
+			<mat-icon matSuffix (click)="showPw = !showPw">{{showPw ? 'visibility_off' : 'visibility'}}</mat-icon>
+			<mat-error *ngIf="password.hasError('minlength') && !password.hasError('required')">
+				Password must be atleast {{ password.errors.minlength.requiredLength }} characters
+			</mat-error>
+			<mat-error *ngIf="password.hasError('required')">
+				{{ 'Password is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-checkbox name="keepSignedIn" formControlName='keepSignedIn' class="form-field" >
+			{{ 'Keep me signed in' | translate }}
+		</mat-checkbox>
+	</form>	
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button (click)="onSignupClick()">{{ 'Signup' | translate }}</button>
+	<button mat-raised-button cdkFocusInitial (click)="onLogonClick()" [color]="!loginForm.valid ? 'primary' : 'warn'">
+		{{ 'Login' | translate }}<span *ngIf="invalidLogin">{{ 'failed, again' | translate }}</span>
+	</button>
+</mat-dialog-actions>

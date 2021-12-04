@@ -1,0 +1,8 @@
+-   ra_id: 1
+    ra_r_id: 1
+    ra_ma_id: 1
+    ra_create: 1
+    ra_read: 1
+    ra_update: 1
+    ra_delete: 1
+    r_remark: Record was added by runonce

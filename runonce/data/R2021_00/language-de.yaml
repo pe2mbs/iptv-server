@@ -1,0 +1,202 @@
+# Translation done with google translate
+- lr_la_id: 3
+  lr_lt_id: 1
+  tr_text: Datum und Uhrzeit ändern
+- lr_la_id: 3
+  lr_lt_id: 2
+  tr_text: Aktion
+- lr_la_id: 3
+  lr_lt_id: 3
+  tr_text: Zeitstempel ändern
+- lr_la_id: 3
+  lr_lt_id: 4
+  tr_text: Sperre starten
+- lr_la_id: 3
+  lr_lt_id: 5
+  tr_text: Beschreibung
+- lr_la_id: 3
+  lr_lt_id: 6
+  tr_text: Nachname
+- lr_la_id: 3
+  lr_lt_id: 7
+  tr_text: E-Mail-Addresse
+- lr_la_id: 3
+  lr_lt_id: 8
+  tr_text: Sprachen
+- lr_la_id: 3
+  lr_lt_id: 9
+  tr_text: Instrumententafel
+- lr_la_id: 3
+  lr_lt_id: 10
+  tr_text: Benutzer
+- lr_la_id: 3
+  lr_lt_id: 11
+  tr_text: Rollen
+- lr_la_id: 3
+  lr_lt_id: 12
+  tr_text: Sperren aufzeichnen
+- lr_la_id: 3
+  lr_lt_id: 13
+  tr_text: Datenbank
+- lr_la_id: 3
+  lr_lt_id: 14
+  tr_text: Demo
+- lr_la_id: 3
+  lr_lt_id: 15
+  tr_text: Bedingungen
+- lr_la_id: 3
+  lr_lt_id: 16
+  tr_text: Ist gleich ==
+- lr_la_id: 3
+  lr_lt_id: 17
+  tr_text: Ist nicht gleich !=
+- lr_la_id: 3
+  lr_lt_id: 18
+  tr_text: Größer als >
+- lr_la_id: 3
+  lr_lt_id: 19
+  tr_text: Zwischen
+- lr_la_id: 3
+  lr_lt_id: 20
+  tr_text: Beginnt mit
+- lr_la_id: 3
+  lr_lt_id: 21
+  tr_text: Enthält nicht
+- lr_la_id: 3
+  lr_lt_id: 22
+  tr_text: Datenfeld
+- lr_la_id: 3
+  lr_lt_id: 23
+  tr_text: Löschen
+- lr_la_id: 3
+  lr_lt_id: 24
+  tr_text: Nachrichten
+- lr_la_id: 3
+  lr_lt_id: 25
+  tr_text: Kleiner oder gleich <=
+- lr_la_id: 3
+  lr_lt_id: 26
+  tr_text: Enthält
+- lr_la_id: 3
+  lr_lt_id: 27
+  tr_text: Ist nicht leer
+- lr_la_id: 3
+  lr_lt_id: 28
+  tr_text: Wert
+- lr_la_id: 3
+  lr_lt_id: 29
+  tr_text: Suche
+- lr_la_id: 3
+  lr_lt_id: 30
+  tr_text: Größer oder gleich als >=
+- lr_la_id: 3
+  lr_lt_id: 31
+  tr_text: Ist leer
+- lr_la_id: 3
+  lr_lt_id: 32
+  tr_text: keine Ergebnisse gefunden
+- lr_la_id: 3
+  lr_lt_id: 32
+  tr_text: Keine Ergebnisse
+- lr_la_id: 3
+  lr_lt_id: 33
+  tr_text: Änderungen aufzeichnen
+- lr_la_id: 3
+  lr_lt_id: 34
+  tr_text: Administration
+- lr_la_id: 3
+  lr_lt_id: 35
+  tr_text: Nutzer
+- lr_la_id: 3
+  lr_lt_id: 36
+  tr_text: Datentabelle
+- lr_la_id: 3
+  lr_lt_id: 37
+  tr_text: Endet mit
+- lr_la_id: 3
+  lr_lt_id: 38
+  tr_text: Weniger als <
+- lr_la_id: 3
+  lr_lt_id: 39
+  tr_text: Vorname
+- lr_la_id: 3
+  lr_lt_id: 40
+  tr_text: Nutzername
+- lr_la_id: 3
+  lr_lt_id: 41
+  tr_text: Übersetzungen
+- lr_la_id: 3
+  lr_lt_id: 42
+  tr_text: Fehler beim Anmelden, Sie es erneut
+- lr_la_id: 3
+  lr_lt_id: 43
+  tr_text: Passwort
+- lr_la_id: 3
+  lr_lt_id: 44
+  tr_text: Anmeldung
+- lr_la_id: 3
+  lr_lt_id: 45
+  tr_text: Passwort ist obligatorisch
+- lr_la_id: 3
+  lr_lt_id: 46
+  tr_text: Benutzername ist obligatorisch
+- lr_la_id: 3
+  lr_lt_id: 47
+  tr_text: Registrieren
+- lr_la_id: 3
+  lr_lt_id: 48
+  tr_text: Halten sie mich angemeldet
+- lr_la_id: 3
+  lr_lt_id: 49
+  tr_text: Der Benutzername muss aus 7 Zeichen bestehen
+- lr_la_id: 3
+  lr_lt_id: 50
+  tr_text: Sprache
+- lr_la_id: 3
+  lr_lt_id: 51
+  tr_text: Rollenzugriff
+- lr_la_id: 3
+  lr_lt_id: 52
+  tr_text: Nächste seite
+- lr_la_id: 3
+  lr_lt_id: 53
+  tr_text: pro seite
+- lr_la_id: 3
+  lr_lt_id: 54
+  tr_text: Vorherige seite
+- lr_la_id: 3
+  lr_lt_id: 55
+  tr_text: Erste seite
+- lr_la_id: 3
+  lr_lt_id: 56
+  tr_text: von
+- lr_la_id: 3
+  lr_lt_id: 57
+  tr_text: Letzte seite
+- lr_la_id: 3
+  lr_lt_id: 58
+  tr_text: Beschriftung
+- lr_la_id: 3
+  lr_lt_id: 59
+  tr_text: Sprache code-2
+- lr_la_id: 3
+  lr_lt_id: 60
+  tr_text: Sprache code-3
+- lr_la_id: 3
+  lr_lt_id: 61
+  tr_text: Land code-2
+- lr_la_id: 3
+  lr_lt_id: 62
+  tr_text: Land code-3
+- lr_la_id: 3
+  lr_lt_id: 63
+  tr_text: Max. wert
+- lr_la_id: 3
+  lr_lt_id: 64
+  tr_text: Min. wert
+- lr_la_id: 3
+  lr_lt_id: 65
+  tr_text: Sprache code-2
+- lr_la_id: 3
+  lr_lt_id: 66
+  tr_text: Sprache code-3

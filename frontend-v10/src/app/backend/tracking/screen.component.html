@@ -1,0 +1,34 @@
+<mat-card id="tracking.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="tracking"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="tracking.form">
+            <mat-tab-group fxFlex="100">
+                <mat-tab label="General" id="tracking.tab.general" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-text-input id="tracking.T_USER" placeholder="User" fxFlex="60px" error="true" readonly="true" formControlName="T_USER"></gc-text-input>
+                        <gc-text-input id="tracking.T_TABLE" placeholder="Table" fxFlex="60px" error="true" readonly="true" formControlName="T_TABLE"></gc-text-input>
+                        <gc-choice-input id="tracking.T_ACTION" placeholder="Action" fxFlex="60px" error="true" [items]="T_ACTIONList" readonly="true" formControlName="T_ACTION"></gc-choice-input>
+                        <gc-text-input id="tracking.T_RECORD_ID" placeholder="Record id" fxFlex="60px" error="true" readonly="true" formControlName="T_RECORD_ID"></gc-text-input>
+                        <gc-text-input id="tracking.T_CHANGE_DATE_TIME" placeholder="Change timestamp" fxFlex="60px" error="true" readonly="true" formControlName="T_CHANGE_DATE_TIME"></gc-text-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Record details" id="tracking.tab.record_details" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-monaco-editor id="tracking.T_CONTENTS" placeholder="Record contents" fxFlex="98" language="json" error="true" formControlName="T_CONTENTS"></gc-monaco-editor>
+                    </mat-card>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="tracking.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="tracking.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

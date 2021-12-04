@@ -1,0 +1,148 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           role_access
+    title:                          Role Access
+    class:                          RoleAccess
+    uri:                            /api/role_access
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        menu:
+            caption:                Role Access
+            icon:                   group_work
+            route:                  /role_access
+            after:                  Roles
+    actions:
+    -   name:                       new
+        label:                      New
+        type:                       screen
+        icon:                       add
+        position:                   header
+        function:                   self.addRecord()
+    -   name:                       edit
+        label:                      Edit
+        type:                       screen
+        icon:                       edit
+        position:                   row
+        function:                   self.editRecord( idx, row )
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'RA_ID', 'Module', 'RA_MODULE'  )
+    table:
+        name:                       ROLE_ACCESS
+        tabs:
+            labels:
+            -   Description
+            -   Access
+            -   Remark
+        columns:
+        -   field:                  RA_ID                       INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  RA_R_ID                     INT             FOREIGN KEY ROLE.R_ID  NOT NULL
+            label:                  Role
+            ui:
+                type:               choice
+                service:
+                    class:          Role
+                    name:           role
+                    label:          R_ROLE
+                    value:          R_ID
+            listview:
+                index:              0
+                width:              50%
+            tab:
+                label:              Description
+        -   field:                  RA_MODULE                   CHAR( 50 )      FOREIGN KEY MOD_ACCESS.MA_MODULE  NOT NULL
+            label:                  Module
+            ui:
+                type:               choice
+                service:
+                    name:           mod_access
+                    class:          ModuleAccess
+                    label:          MA_DESCRIPTION
+                    value:          MA_MODULE
+            listview:
+                index:              1
+                width:              50%
+            tab:
+                label:              Description
+        -   field:                  RA_CREATE                   BOOLEAN         DEFAULT 0
+            label:                  Create
+            ui:
+                type:               checkbox
+            listview:
+                index:              2
+                width:              80px
+            tab:
+                label:              Access
+
+        -   field:                  RA_READ                     BOOLEAN         DEFAULT 0
+            label:                  Read
+            ui:
+                type:               checkbox
+            listview:
+                index:              3
+                width:              80px
+            tab:
+                label:              Access
+
+        -   field:                  RA_UPDATE                   BOOLEAN         DEFAULT 0
+            label:                  Update
+            ui:
+                type:               checkbox
+            listview:
+                index:              4
+                width:              80px
+            tab:
+                label:              Access
+
+        -   field:                  RA_DELETE                   BOOLEAN         DEFAULT 0
+            label:                  Delete
+            ui:
+                type:               checkbox
+            listview:
+                index:              5
+                width:              80px
+            tab:
+                label:              Access
+
+        -   field:                  R_REMARK                    CLOB            NULL
+            label:                  Remark
+            hint:                   Miscellaneous information not related.
+            ui:
+                type:               editor
+                attributes:
+                    language:       markdown
+                    minimap:        ^true
+            tab:
+                label:              Remark

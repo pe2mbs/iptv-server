@@ -1,0 +1,89 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           role
+    title:                          Roles
+    remark:                         This is the user roles maintenance screen
+    class:                          Role
+    uri:                            /api/role
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        menu:
+            caption:                Roles
+            icon:                   group_work
+            route:                  /role
+            index:                  1
+    actions:
+    -   name:                       new
+        label:                      New
+        type:                       screen
+        icon:                       add
+        position:                   header
+        function:                   self.addRecord()
+    -   name:                       edit
+        label:                      Edit
+        type:                       screen
+        icon:                       edit
+        position:                   row
+        function:                   self.editRecord( idx, row )
+    -   name:                       delete
+        label:                      Delete
+        type:                       dialog
+        icon:                       delete
+        position:                   cell
+        function:                   core.deleteRecord( idx, row, 'R_ID', 'Role', 'R_ROLE'  )
+    table:
+        name:                       ROLE
+        tabs:
+            labels:
+            -   Description
+            -   Remark
+        columns:
+        -   field:                  R_ID                        INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  R_ROLE                      CHAR( 255 )     NOT NULL
+            label:                  Description
+            ui:
+                type:               textbox
+            listview:
+                index:              0
+                width:              100%
+            tab:
+                label:              Description
+        -   field:                  R_REMARK                    CLOB            NULL
+            label:                  Remark
+            hint:                   Miscellaneous information not related.
+            ui:
+                type:               editor
+                attributes:
+                    language:       markdown
+                    minimap:        ^true
+            tab:
+                label:              Remark

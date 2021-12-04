@@ -1,0 +1,35 @@
+<mat-card id="news.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="news"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="news.form">
+            <gc-text-input id="news.N_MESSAGE" placeholder="Description" fxFlex="60px" error="true" formControlName="N_MESSAGE"></gc-text-input>
+            <mat-tab-group fxFlex="100">
+                <mat-tab label="Details" id="news.tab.details" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-checkbox-input id="news.N_ACTIVE" placeholder="Active" fxFlex="60px" error="true" labelPosition="after" formControlName="N_ACTIVE"></gc-checkbox-input>
+                        <gc-checkbox-input id="news.N_ALERT" placeholder="Alert" fxFlex="60px" error="true" labelPosition="after" formControlName="N_ALERT"></gc-checkbox-input>
+                        <gc-checkbox-input id="news.N_KEEP" placeholder="No Delete" fxFlex="60px" error="true" labelPosition="after" formControlName="N_KEEP"></gc-checkbox-input>
+                        <gc-date-input id="news.N_START_DATE" placeholder="Start date" fxFlex="60px" error="true" format="text" formControlName="N_START_DATE"></gc-date-input>
+                        <gc-date-input id="news.N_END_DATE" placeholder="End date" fxFlex="60px" error="true" format="text" formControlName="N_END_DATE"></gc-date-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Remark" id="news.tab.remark" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-monaco-editor id="news.N_REMARK" placeholder="Remark" fxFlex="98" language="markdown" [minimap]="true" error="true" formControlName="N_REMARK"></gc-monaco-editor>
+                    </mat-card>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="news.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="news.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

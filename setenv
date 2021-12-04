@@ -1,0 +1,2 @@
+export FLASK_ENV=DEVELOPMENT
+export FLASK_APP=webapp2/autoapp.py

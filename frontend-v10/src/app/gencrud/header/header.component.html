@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+	<mat-toolbar-row fxLayout="row">
+		<span fxFlex="5">
+			<button mat-icon-button (click)="toggleSidebar()">
+				<mat-icon>menu</mat-icon>	
+			</button>
+		</span>
+		<span fxFlex="30" class="logo">
+			<a href="/#/">
+                <img src="/assets/{{themeColor}}/{{headerLogo}}?{{timeStamp}}" alt="equensWorldline" size="40">
+			</a>
+		</span>
+		<span fxFlex="50">{{ headerTitle }}</span>
+		<span fxFlex="40">
+			<div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+				<ul fxLayout="row" fxLayoutGap="20px">
+					<li>
+						<gc-theme-switcher></gc-theme-switcher>
+					</li>
+					<li>
+						<gc-lang-switcher></gc-lang-switcher>
+					</li>
+					<li>
+						<gc-help helpitem="main"></gc-help>
+					</li>
+					<li>
+						<button mat-button [matMenuTriggerFor]="menu">
+							<mat-icon>person_outline</mat-icon>
+						</button>
+						<mat-menu #menu="matMenu">
+							<gc-user-profile></gc-user-profile>
+						</mat-menu>
+					</li>
+				</ul>
+			</div>
+		</span>
+	</mat-toolbar-row>
+</mat-toolbar>

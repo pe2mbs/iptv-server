@@ -1,0 +1,40 @@
+<mat-card id="role_access.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="role_access"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="role_access.form">
+            <mat-tab-group fxFlex="100">
+                <mat-tab label="Description" id="role_access.tab.description" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-choice-input id="role_access.RA_R_ID" placeholder="Role" fxFlex="60px" error="true" [items]="roleList" formControlName="RA_R_ID"></gc-choice-input>
+                        <gc-choice-input id="role_access.RA_MA_ID" placeholder="Module" fxFlex="60px" error="true" [items]="mod_accessList" formControlName="RA_MA_ID"></gc-choice-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Access" id="role_access.tab.access" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-checkbox-input id="role_access.RA_CREATE" placeholder="Create" fxFlex="60px" error="true" labelPosition="after" formControlName="RA_CREATE"></gc-checkbox-input>
+                        <gc-checkbox-input id="role_access.RA_READ" placeholder="Read" fxFlex="60px" error="true" labelPosition="after" formControlName="RA_READ"></gc-checkbox-input>
+                        <gc-checkbox-input id="role_access.RA_UPDATE" placeholder="Update" fxFlex="60px" error="true" labelPosition="after" formControlName="RA_UPDATE"></gc-checkbox-input>
+                        <gc-checkbox-input id="role_access.RA_DELETE" placeholder="Delete" fxFlex="60px" error="true" labelPosition="after" formControlName="RA_DELETE"></gc-checkbox-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="Remark" id="role_access.tab.remark" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-monaco-editor id="role_access.R_REMARK" placeholder="Remark" fxFlex="98" language="markdown" [minimap]="true" error="true" formControlName="R_REMARK"></gc-monaco-editor>
+                    </mat-card>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="role_access.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="role_access.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

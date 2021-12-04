@@ -1,0 +1,203 @@
+- lr_la_id: 1
+  lr_lt_id: 1
+  tr_text: Change date time
+- lr_la_id: 1
+  lr_lt_id: 2
+  tr_text: Action
+- lr_la_id: 1
+  lr_lt_id: 3
+  tr_text: Change timestamp
+- lr_la_id: 1
+  lr_lt_id: 4
+  tr_text: Start lock
+- lr_la_id: 1
+  lr_lt_id: 5
+  tr_text: Description
+- lr_la_id: 1
+  lr_lt_id: 6
+  tr_text: Surname
+- lr_la_id: 1
+  lr_lt_id: 7
+  tr_text: E-Mail address
+- lr_la_id: 1
+  lr_lt_id: 8
+  tr_text: Languages
+- lr_la_id: 1
+  lr_lt_id: 9
+  tr_text: Dashboard
+- lr_la_id: 1
+  lr_lt_id: 10
+  tr_text: Users
+- lr_la_id: 1
+  lr_lt_id: 11
+  tr_text: Roles
+- lr_la_id: 1
+  lr_lt_id: 12
+  tr_text: Record locks
+- lr_la_id: 1
+  lr_lt_id: 13
+  tr_text: Database
+- lr_la_id: 1
+  lr_lt_id: 14
+  tr_text: Demo
+- lr_la_id: 1
+  lr_lt_id: 15
+  tr_text: Conditions
+- lr_la_id: 1
+  lr_lt_id: 16
+  tr_text: Is equal ==
+- lr_la_id: 1
+  lr_lt_id: 17
+  tr_text: Is not equal !=
+- lr_la_id: 1
+  lr_lt_id: 18
+  tr_text: Greater than >
+- lr_la_id: 1
+  lr_lt_id: 19
+  tr_text: Between
+- lr_la_id: 1
+  lr_lt_id: 20
+  tr_text: Startswith
+- lr_la_id: 1
+  lr_lt_id: 21
+  tr_text: Not contains
+- lr_la_id: 1
+  lr_lt_id: 22
+  tr_text: Field
+- lr_la_id: 1
+  lr_lt_id: 23
+  tr_text: Clear
+- lr_la_id: 1
+  lr_lt_id: 24
+  tr_text: News
+- lr_la_id: 1
+  lr_lt_id: 25
+  tr_text: Less or equal than <=
+- lr_la_id: 1
+  lr_lt_id: 26
+  tr_text: Contains
+- lr_la_id: 1
+  lr_lt_id: 27
+  tr_text: Is not empty
+- lr_la_id: 1
+  lr_lt_id: 28
+  tr_text: Value
+- lr_la_id: 1
+  lr_lt_id: 29
+  tr_text: Search
+- lr_la_id: 1
+  lr_lt_id: 30
+  tr_text: Greater or equal than >=
+- lr_la_id: 1
+  lr_lt_id: 31
+  tr_text: Is empty
+- lr_la_id: 1
+  lr_lt_id: 32
+  tr_text: No results found
+- lr_la_id: 1
+  lr_lt_id: 32
+  tr_text: No results
+- lr_la_id: 1
+  lr_lt_id: 33
+  tr_text: Record changes
+- lr_la_id: 1
+  lr_lt_id: 34
+  tr_text: Administration
+- lr_la_id: 1
+  lr_lt_id: 35
+  tr_text: User
+- lr_la_id: 1
+  lr_lt_id: 36
+  tr_text: Table
+- lr_la_id: 1
+  lr_lt_id: 37
+  tr_text: Endswith
+- lr_la_id: 1
+  lr_lt_id: 38
+  tr_text: Less than <
+- lr_la_id: 1
+  lr_lt_id: 39
+  tr_text: First name
+- lr_la_id: 1
+  lr_lt_id: 40
+  tr_text: Username
+- lr_la_id: 1
+  lr_lt_id: 41
+  tr_text: Translations
+- lr_la_id: 1
+  lr_lt_id: 42
+  tr_text: failed, again
+- lr_la_id: 1
+  lr_lt_id: 43
+  tr_text: Password
+- lr_la_id: 1
+  lr_lt_id: 44
+  tr_text: Login
+- lr_la_id: 1
+  lr_lt_id: 45
+  tr_text: Password is mandatory
+- lr_la_id: 1
+  lr_lt_id: 46
+  tr_text: Username is mandatory
+- lr_la_id: 1
+  lr_lt_id: 47
+  tr_text: Signup
+- lr_la_id: 1
+  lr_lt_id: 48
+  tr_text: Keep me signed in
+- lr_la_id: 1
+  lr_lt_id: 49
+  tr_text: Username must be 7 characters
+- lr_la_id: 1
+  lr_lt_id: 50
+  tr_text: Language
+- lr_la_id: 1
+  lr_lt_id: 51
+  tr_text: Role Access
+- lr_la_id: 1
+  lr_lt_id: 52
+  tr_text: Next page
+- lr_la_id: 1
+  lr_lt_id: 53
+  tr_text: items per page
+- lr_la_id: 1
+  lr_lt_id: 54
+  tr_text: Previous page
+- lr_la_id: 1
+  lr_lt_id: 55
+  tr_text: First page
+- lr_la_id: 1
+  lr_lt_id: 56
+  tr_text: of
+- lr_la_id: 1
+  lr_lt_id: 57
+  tr_text: Last page
+- lr_la_id: 1
+  lr_lt_id: 58
+  tr_text: Label
+- lr_la_id: 1
+  lr_lt_id: 59
+  tr_text: Language code-2
+- lr_la_id: 1
+  lr_lt_id: 60
+  tr_text: Language code-3
+- lr_la_id: 1
+  lr_lt_id: 61
+  tr_text: Country code-2
+- lr_la_id: 1
+  lr_lt_id: 62
+  tr_text: Country code-3
+- lr_la_id: 1
+  lr_lt_id: 63
+  tr_text: Max. value
+- lr_la_id: 1
+  lr_lt_id: 64
+  tr_text: Min. Value
+- lr_la_id: 1
+  lr_lt_id: 65
+  tr_text: Lang. code-2
+- lr_la_id: 1
+  lr_lt_id: 66
+  tr_text: Lang. code-3
+
+

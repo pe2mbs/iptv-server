@@ -1,0 +1,19 @@
+<div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="8px" fxLayoutAlign="flex-start">
+	<app-widget-wrapper fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+		<app-velocity-widget></app-velocity-widget>
+	</app-widget-wrapper>
+	<app-widget-wrapper  fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+		<app-weather-widget></app-weather-widget>
+	</app-widget-wrapper> 
+	<app-widget-wrapper  fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+		<app-velocity-widget></app-velocity-widget>
+	</app-widget-wrapper>
+	<app-widget-wrapper  fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+		<app-weather-widget></app-weather-widget>
+	</app-widget-wrapper> 
+</div>
+<gridster [options]="options">
+	<gridster-item [item]="item" *ngFor="let item of dashboard">
+		<!-- your content here -->
+	</gridster-item>
+</gridster>

@@ -1,0 +1,11 @@
+-   r_id: 1
+    r_role: Administrator
+    r_remark: >
+        Application administrator
+        Record was added by runonce
+-   r_id: 2
+    r_role: Test engineer
+    r_remark: Record was added by runonce
+-   r_id: 3
+    r_role: Tester
+    r_remark: Record was added by runonce

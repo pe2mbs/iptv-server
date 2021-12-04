@@ -1,0 +1,204 @@
+# Translation done with google translate
+- lr_la_id: 5
+  lr_lt_id: 1
+  tr_text: Modifica data e ora
+- lr_la_id: 5
+  lr_lt_id: 2
+  tr_text: Azione
+- lr_la_id: 5
+  lr_lt_id: 3
+  tr_text: Modifica data e ora
+- lr_la_id: 5
+  lr_lt_id: 4
+  tr_text: Avvia blocco
+- lr_la_id: 5
+  lr_lt_id: 5
+  tr_text: Descrizione
+- lr_la_id: 5
+  lr_lt_id: 6
+  tr_text: Cognome
+- lr_la_id: 5
+  lr_lt_id: 7
+  tr_text: Indirizzo e-mail
+- lr_la_id: 5
+  lr_lt_id: 8
+  tr_text: Le lingue
+- lr_la_id: 5
+  lr_lt_id: 9
+  tr_text: Pannello di controllo
+- lr_la_id: 5
+  lr_lt_id: 10
+  tr_text: Utenti
+- lr_la_id: 5
+  lr_lt_id: 11
+  tr_text: Ruoli
+- lr_la_id: 5
+  lr_lt_id: 12
+  tr_text: Record di serrature
+- lr_la_id: 5
+  lr_lt_id: 13
+  tr_text: Banca dati
+- lr_la_id: 5
+  lr_lt_id: 14
+  tr_text: Demo
+- lr_la_id: 5
+  lr_lt_id: 15
+  tr_text: Condizioni
+- lr_la_id: 5
+  lr_lt_id: 16
+  tr_text: È uguale ==
+- lr_la_id: 5
+  lr_lt_id: 17
+  tr_text: Non è uguale! =
+- lr_la_id: 5
+  lr_lt_id: 18
+  tr_text: Maggiore di >
+- lr_la_id: 5
+  lr_lt_id: 19
+  tr_text: Fra
+- lr_la_id: 5
+  lr_lt_id: 20
+  tr_text: Inizia con
+- lr_la_id: 5
+  lr_lt_id: 21
+  tr_text: Non contiene
+- lr_la_id: 5
+  lr_lt_id: 22
+  tr_text: Campo dati
+- lr_la_id: 5
+  lr_lt_id: 23
+  tr_text: Pulito
+- lr_la_id: 5
+  lr_lt_id: 24
+  tr_text: Notizia
+- lr_la_id: 5
+  lr_lt_id: 25
+  tr_text: Minore o uguale a <=
+- lr_la_id: 5
+  lr_lt_id: 26
+  tr_text: Contiene
+- lr_la_id: 5
+  lr_lt_id: 27
+  tr_text: Non è vuoto
+- lr_la_id: 5
+  lr_lt_id: 28
+  tr_text: Valore
+- lr_la_id: 5
+  lr_lt_id: 29
+  tr_text: Ricerca
+- lr_la_id: 5
+  lr_lt_id: 30
+  tr_text: Maggiore o uguale a> =
+- lr_la_id: 5
+  lr_lt_id: 31
+  tr_text: È vuoto
+- lr_la_id: 5
+  lr_lt_id: 32
+  tr_text: Nessun risultato trovato
+- lr_la_id: 5
+  lr_lt_id: 32
+  tr_text: Nessun risultato
+- lr_la_id: 5
+  lr_lt_id: 33
+  tr_text: Registra le modifiche
+- lr_la_id: 5
+  lr_lt_id: 34
+  tr_text: Amministrazione
+- lr_la_id: 5
+  lr_lt_id: 35
+  tr_text: Utente
+- lr_la_id: 5
+  lr_lt_id: 36
+  tr_text: Tabella
+- lr_la_id: 5
+  lr_lt_id: 37
+  tr_text: Finisce con
+- lr_la_id: 5
+  lr_lt_id: 38
+  tr_text: Meno di <
+- lr_la_id: 5
+  lr_lt_id: 39
+  tr_text: Nome di battesimo
+- lr_la_id: 5
+  lr_lt_id: 40
+  tr_text: Nome utente
+- lr_la_id: 5
+  lr_lt_id: 41
+  tr_text: Traduzioni
+- lr_la_id: 5
+  lr_lt_id: 42
+  tr_text: fallito, di nuovo
+- lr_la_id: 5
+  lr_lt_id: 43
+  tr_text: Parola d'ordine
+- lr_la_id: 5
+  lr_lt_id: 44
+  tr_text: Accesso
+- lr_la_id: 5
+  lr_lt_id: 45
+  tr_text: La password è obbligatoria
+- lr_la_id: 5
+  lr_lt_id: 46
+  tr_text: Il nome utente è obbligatorio
+- lr_la_id: 5
+  lr_lt_id: 47
+  tr_text: Iscriviti
+- lr_la_id: 5
+  lr_lt_id: 48
+  tr_text: Resta collegato
+- lr_la_id: 5
+  lr_lt_id: 49
+  tr_text: Il nome utente deve contenere 7 caratteri
+- lr_la_id: 5
+  lr_lt_id: 50
+  tr_text: linguaggio
+- lr_la_id: 5
+  lr_lt_id: 51
+  tr_text: Accesso al ruolo
+- lr_la_id: 5
+  lr_lt_id: 52
+  tr_text: Pagina successiva
+- lr_la_id: 5
+  lr_lt_id: 53
+  tr_text: Per pagina
+- lr_la_id: 5
+  lr_lt_id: 54
+  tr_text: Pagina precedente
+- lr_la_id: 5
+  lr_lt_id: 55
+  tr_text: Prima pagina
+- lr_la_id: 5
+  lr_lt_id: 56
+  tr_text: di
+- lr_la_id: 5
+  lr_lt_id: 57
+  tr_text: Ultima pagina
+- lr_la_id: 5
+  lr_lt_id: 58
+  tr_text: Etichetta
+- lr_la_id: 5
+  lr_lt_id: 59
+  tr_text: Linguaggio code-2
+- lr_la_id: 5
+  lr_lt_id: 60
+  tr_text: Linguaggio code-3
+- lr_la_id: 5
+  lr_lt_id: 61
+  tr_text: Nazione code-2
+- lr_la_id: 5
+  lr_lt_id: 62
+  tr_text: Nazione code-3
+- lr_la_id: 5
+  lr_lt_id: 63
+  tr_text: Valore massimo
+- lr_la_id: 5
+  lr_lt_id: 64
+  tr_text: Valore minimo
+- lr_la_id: 5
+  lr_lt_id: 65
+  tr_text: Lingua. code-2
+- lr_la_id: 5
+  lr_lt_id: 66
+  tr_text: Lingua. code-3
+
+

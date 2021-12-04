@@ -1,0 +1,21 @@
+<div id="language_reference" fxLayout="column">
+    <h3 mat-dialog-title id="language_reference.title">{{ mode }} Language Reference</h3>
+    <form fxLayout="column" (ngSubmit)="submit" [formGroup]="formGroup" id="language_reference.form">
+        <gc-choice-input id="language_reference.LR_LA_ID" placeholder="Language" fxFlex="60px" error="true" [items]="languagesList" formControlName="LR_LA_ID"></gc-choice-input>
+        <gc-text-input id="language_reference.TR_TEXT" placeholder="Text" fxFlex="60px" error="true" formControlName="TR_TEXT"></gc-text-input>
+        <gc-choice-input id="language_reference.LR_LT_ID" placeholder="Reference" fxFlex="60px" error="true" [items]="language_translatesList" formControlName="LR_LT_ID"></gc-choice-input>
+    </form>
+    <div mat-dialog-actions fxFlex="5">
+        <button mat-button
+                [type]="submit"
+                id="language_reference.submit"
+                [disabled]="!formGroup.valid"
+                [mat-dialog-close]="1"
+                (click)="onSaveClick()">Save</button>
+        <button mat-button
+                (click)="onCancelClick()"
+                id="language_reference.cancel"
+                tabindex="-1">Cancel</button>
+    </div>
+</div>
+

@@ -1,0 +1,63 @@
+<mat-dialog-content>
+	<div>
+		<div fxFlex="column">
+			<h2 fxFlex="92" mat-card-title>{{ 'Sign up' | translate }}</h2>
+			<gc-lang-switcher fxFlex="8"></gc-lang-switcher>
+		</div>
+	</div>
+	<form [formGroup]="signupForm" novalidate class="signup-form">
+		<mat-form-field class="form-field">
+			<input matInput [placeholder]="'Username' | translate" formControlName="userid">
+			<mat-error *ngIf="userid.hasError('minlength') || userid.hasError('maxlength')">
+				{{ 'Username must be 7 characters' | translate }}
+			</mat-error>
+			<mat-error *ngIf="userid.hasError('required')">
+				{{ 'Username is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="form-field">
+			<input matInput [type]="showPw ? 'text' : 'password'" 
+					[placeholder]="'Password' | translate" formControlName='password'>
+			<mat-icon matSuffix (click)="showPw = !showPw">{{showPw ? 'visibility_off' : 'visibility'}}</mat-icon>
+			<mat-error *ngIf="password.hasError('required')">
+				{{ 'Password is mandatory' | translate }}
+            </mat-error>
+        </mat-form-field>      
+        <mat-password-strength #passwordComponent [password]="password.value"></mat-password-strength>
+		<mat-password-strength-info [passwordComponent]="passwordComponent"
+				[lowerCaseCriteriaMsg]="'LOWER_CASE_CRITERIA_MSG' | translate"
+              	[upperCaseCriteriaMsg]="'UPPER_CASE_CRITERIA_MSG' | translate"
+              	[digitsCriteriaMsg]="'DIGITS_CRITERIA_MSG'| translate"
+              	[specialCharsCriteriaMsg]="'SPECIAL_CHARS_CRITERIA_MSG' | translate"
+              	[minCharsCriteriaMsg]="'MIN_CHARS_CRITERIA_MSG' | translate"
+		
+		></mat-password-strength-info>
+		<mat-form-field class="form-field">
+			<input matInput [placeholder]="'E-Mail' | translate" formControlName='email'>
+			<mat-error *ngIf="email.hasError('required')">
+				{{ 'E-Mail is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="form-field">
+			<input matInput [placeholder]="'First name' | translate" formControlName='firstname'>
+			<mat-error *ngIf="firstname.hasError('required')">
+				{{ 'First name is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+		<mat-form-field class="form-field">
+			<input matInput [placeholder]="'Middle name(s)' | translate" formControlName='middlename'>
+		</mat-form-field>	
+		<mat-form-field class="form-field">
+			<input matInput [placeholder]="'Surname' | translate" formControlName='lastname'>
+			<mat-error *ngIf="lastname.hasError('required')">
+				{{ 'Surname is mandatory' | translate }}
+			</mat-error>
+		</mat-form-field>
+	</form>		
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+	<button mat-raised-button (click)="onSignupClick()" 
+			[color]="signupForm.valid ? 'warn' : 'primary'"
+			[disabled]="signupForm.valid ? false : true">{{ 'Signup' | translate }}</button>
+	<button mat-raised-button (click)="onCancelClick()">{{ 'Cancel' | translate }}</button>
+</mat-dialog-actions>

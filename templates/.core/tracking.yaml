@@ -1,0 +1,161 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           tracking
+    title:                          Tracking
+    class:                          Tracking
+    uri:                            /api/tracking
+    menu:
+        caption:                    Administration
+        icon:                       settings
+        index:                      -2
+        before:                     Parameters
+        after:                      Roles
+        menu:
+            caption:                DataBase
+            icon:                   data_usage
+            index:                  -1
+            menu:
+                caption:            Record changes
+                icon:               track_changes
+                route:              /tracking
+                index:              1
+    actions:
+    -   name:                       new
+        type:                       none
+        position:                   none
+    -   name:                       edit
+        label:                      Edit
+        type:                       screen
+        icon:                       edit
+        position:                   row
+        function:                   self.editRecord( idx, row )
+    -   name:                       delete
+        type:                       none
+        position:                   none
+    -   name:                       restore
+        type:                       mixin
+        position:                   cell
+        icon:                       restore
+        function:                   self.restoreRecord( idx, row )
+#    ignore_templates: []
+#    injection:
+#        module.ts:
+#            # This is needed as dialog.component.ts/dialog.component.html
+#            # are predefined
+#            # This only works when the dialog is called from the mixin
+#            dialog:                 DialogTestPlanComponent
+    mixin:
+        angular:
+            table.component:
+                class:              TrackingBaseComponent
+                file:               table.mixin.ts
+        python:
+            init:
+                filename:           backend/tracking/tracking.py
+            view:
+                class:              TrackingViewMixin
+                filename:           backend/tracking/mixin.py
+    table:
+        name:                       TRACKING
+        tabs:
+            labels:
+            -   General
+            -   Record details
+        viewSort:
+            field:                  L_CHANGE_DATE_TIME
+            direction:              desc
+        columns:
+        -   field:                  T_ID                        INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  T_USER                      TEXT            NOT NULL
+            label:                  User
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              0
+                width:              30%
+            tab:
+                label:              General
+                index:              0
+        -   field:                  T_TABLE                     TEXT            NOT NULL
+            label:                  Table
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              1
+                width:              30%
+            tab:
+                label:              General
+                index:              1
+        -   field:                  T_ACTION                    INT             NOT NULL
+            label:                  Action
+            readonly:               true
+            ui:
+                type:               choice
+                resolve-list:
+                    1:              Insert
+                    2:              Update
+                    3:              Delete
+            listview:
+                index:              2
+                width:              10%
+            tab:
+                label:              General
+                index:              2
+        -   field:                  T_RECORD_ID                 INT             NOT NULL
+            label:                  Record id
+            readonly:               true
+            ui:
+                type:               textbox
+            tab:
+                label:              General
+                index:              4
+        -   field:                  T_CHANGE_DATE_TIME          DATETIME        NOT NULL
+            label:                  Change timestamp
+            readonly:               true
+            ui:
+                type:               textbox
+            listview:
+                index:              3
+                width:              300px
+            tab:
+                label:              General
+                index:              4
+        -   field:                  T_CONTENTS                  CLOB            NULL
+            label:                  Record contents
+            ui:
+                type:               editor
+                attributes:
+                    language:       json
+            tab:
+                label:              Record details
+                index:              0

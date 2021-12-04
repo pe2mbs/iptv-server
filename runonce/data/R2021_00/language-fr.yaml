@@ -1,0 +1,204 @@
+# Translation done with google translate
+- lr_la_id: 4
+  lr_lt_id: 1
+  tr_text: Changer la date et l'heure
+- lr_la_id: 4
+  lr_lt_id: 2
+  tr_text: Action
+- lr_la_id: 4
+  lr_lt_id: 3
+  tr_text: Modifier l'horodatage
+- lr_la_id: 4
+  lr_lt_id: 4
+  tr_text: Verrouillage de démarrage
+- lr_la_id: 4
+  lr_lt_id: 5
+  tr_text: Description
+- lr_la_id: 4
+  lr_lt_id: 6
+  tr_text: Nom de famille
+- lr_la_id: 4
+  lr_lt_id: 7
+  tr_text: Adresse e-mail
+- lr_la_id: 4
+  lr_lt_id: 8
+  tr_text: Langages
+- lr_la_id: 4
+  lr_lt_id: 9
+  tr_text: Tableau de bord
+- lr_la_id: 4
+  lr_lt_id: 10
+  tr_text: Utilisateurs
+- lr_la_id: 4
+  lr_lt_id: 11
+  tr_text: Rôles
+- lr_la_id: 4
+  lr_lt_id: 12
+  tr_text: Verrous d'enregistrement
+- lr_la_id: 4
+  lr_lt_id: 13
+  tr_text: Base de données
+- lr_la_id: 4
+  lr_lt_id: 14
+  tr_text: Démo
+- lr_la_id: 4
+  lr_lt_id: 15
+  tr_text: Conditions
+- lr_la_id: 4
+  lr_lt_id: 16
+  tr_text: Est égal ==
+- lr_la_id: 4
+  lr_lt_id: 17
+  tr_text: N'est pas égal! =
+- lr_la_id: 4
+  lr_lt_id: 18
+  tr_text: Supérieur à >
+- lr_la_id: 4
+  lr_lt_id: 19
+  tr_text: Compris entre
+- lr_la_id: 4
+  lr_lt_id: 20
+  tr_text: Commence avec
+- lr_la_id: 4
+  lr_lt_id: 21
+  tr_text: Ne contient pas
+- lr_la_id: 4
+  lr_lt_id: 22
+  tr_text: Champ de données
+- lr_la_id: 4
+  lr_lt_id: 23
+  tr_text: Pure
+- lr_la_id: 4
+  lr_lt_id: 24
+  tr_text: Nouvelles
+- lr_la_id: 4
+  lr_lt_id: 25
+  tr_text: Inférieur ou égal à <=
+- lr_la_id: 4
+  lr_lt_id: 26
+  tr_text: Contient
+- lr_la_id: 4
+  lr_lt_id: 27
+  tr_text: N'est pas vide
+- lr_la_id: 4
+  lr_lt_id: 28
+  tr_text: Évaluer
+- lr_la_id: 4
+  lr_lt_id: 29
+  tr_text: Chercher
+- lr_la_id: 4
+  lr_lt_id: 30
+  tr_text: Supérieur ou égal à> =
+- lr_la_id: 4
+  lr_lt_id: 31
+  tr_text: Est vide
+- lr_la_id: 4
+  lr_lt_id: 32
+  tr_text: Aucun résultat trouvé
+- lr_la_id: 4
+  lr_lt_id: 32
+  tr_text: Aucun résultat
+- lr_la_id: 4
+  lr_lt_id: 33
+  tr_text: Enregistrer les modifications
+- lr_la_id: 4
+  lr_lt_id: 34
+  tr_text: Administration
+- lr_la_id: 4
+  lr_lt_id: 35
+  tr_text: Utilisateur
+- lr_la_id: 4
+  lr_lt_id: 36
+  tr_text: Tableau de données
+- lr_la_id: 4
+  lr_lt_id: 37
+  tr_text: Se termine par
+- lr_la_id: 4
+  lr_lt_id: 38
+  tr_text: Moins de <
+- lr_la_id: 4
+  lr_lt_id: 39
+  tr_text: Prénom
+- lr_la_id: 4
+  lr_lt_id: 40
+  tr_text: Nom d'utilisateur
+- lr_la_id: 4
+  lr_lt_id: 41
+  tr_text: Traductions
+- lr_la_id: 4
+  lr_lt_id: 42
+  tr_text: Raté, encore
+- lr_la_id: 4
+  lr_lt_id: 43
+  tr_text: Mot de passe
+- lr_la_id: 4
+  lr_lt_id: 44
+  tr_text: Login
+- lr_la_id: 4
+  lr_lt_id: 45
+  tr_text: Le mot de passe est obligatoire
+- lr_la_id: 4
+  lr_lt_id: 46
+  tr_text: Le nom d'utilisateur est obligatoire
+- lr_la_id: 4
+  lr_lt_id: 47
+  tr_text: S'inscrire
+- lr_la_id: 4
+  lr_lt_id: 48
+  tr_text: Gardez-moi connecté
+- lr_la_id: 4
+  lr_lt_id: 49
+  tr_text: Le nom d'utilisateur doit comporter 7 caractères
+- lr_la_id: 4
+  lr_lt_id: 50
+  tr_text: Langue
+- lr_la_id: 4
+  lr_lt_id: 51
+  tr_text: Accès aux rôles
+- lr_la_id: 4
+  lr_lt_id: 52
+  tr_text: Page suivante
+- lr_la_id: 4
+  lr_lt_id: 53
+  tr_text: par page
+- lr_la_id: 4
+  lr_lt_id: 54
+  tr_text: Page précédente
+- lr_la_id: 4
+  lr_lt_id: 55
+  tr_text: Première page
+- lr_la_id: 4
+  lr_lt_id: 56
+  tr_text: de
+- lr_la_id: 4
+  lr_lt_id: 57
+  tr_text: Dernière page
+- lr_la_id: 4
+  lr_lt_id: 58
+  tr_text: Étiqueter
+- lr_la_id: 4
+  lr_lt_id: 59
+  tr_text: Langue code-2
+- lr_la_id: 4
+  lr_lt_id: 60
+  tr_text: Langue code-3
+- lr_la_id: 4
+  lr_lt_id: 61
+  tr_text: Pays code-2
+- lr_la_id: 4
+  lr_lt_id: 62
+  tr_text: Pays code-3
+- lr_la_id: 4
+  lr_lt_id: 63
+  tr_text: Valeur max.
+- lr_la_id: 4
+  lr_lt_id: 64
+  tr_text: Valeur min.
+- lr_la_id: 4
+  lr_lt_id: 65
+  tr_text: Langue code-2
+- lr_la_id: 4
+  lr_lt_id: 66
+  tr_text: Langue code-3
+
+

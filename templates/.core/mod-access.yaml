@@ -1,0 +1,50 @@
+linux:
+    source:
+        base:                       /home/mbertens/src/python/example_webapp_angular
+        python:                     .
+        angular:                    frontend-v10/src/app
+    template:
+        base:                       /home/mbertens/src/python/example_webapp_angular/templates/gencrud-v10
+        python:                     python
+        angular:                    angular
+        common:
+            python:                 python
+            angular:                angular
+application:                        backend
+options:
+    ignore-case-db-ids:             true
+    overwrite:                      true
+    use-module:                     true
+    copy-support-files:             false
+    use-local-template:             true
+references:
+    app-module:
+        filename:                   app.module.ts
+        class:                      AppModule
+        module:                     app.module.ts
+    app-routing:
+        filename:                   app.routingmodule.ts
+        class:                      AppRoutingModule
+        module:                     app.routingmodule.ts
+objects:
+-   name:                           mod_access
+    title:                          Module Access
+    class:                          ModuleAccess
+    uri:                            /api/mod_access
+    route:                          /mod_access
+    actions:
+    -   name:                       new
+        type:                       none
+        position:                   none
+    -   name:                       edit
+        type:                       none
+        position:                   none
+    -   name:                       delete
+        type:                       none
+        position:                   none
+    table:
+        name:                       MOD_ACCESS
+        columns:
+        -   field:                  MA_ID                       INT             AUTO NUMBER  PRIMARY KEY
+        -   field:                  MA_MODULE                   CHAR( 50 )      NOT NULL
+        -   field:                  MA_DESCRIPTION              CHAR( 50 )      NOT NULL
