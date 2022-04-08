@@ -1,0 +1,42 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     alias
+    title:                    Aliasses
+    class:                    Alias
+    uri:                      /api/alias
+    menu:
+      caption:                Alias
+      icon:                   settings
+      index:                  0
+      route:                  /alias
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'IA_ID', 'Alias', 'IA_NAME'  )
+    table:
+      name:                   CHANNEL
+      columns:
+        - field:              IA_ID               INT             AUTO NUMBER   PRIMARY KEY
+        - field:              IA_NAME             CHAR( 64 )      NOT NULL
+          ui:
+            type:             textbox
+          listview:
+            index:            0
+            width:            45%
+        - field:              IA_ALIAS            CHAR( 64 )      NOT NULL
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            45%
+        - field:              IA_INDEX            INT             NULL
+          ui:
+            type:             number
+          listview:
+            index:            2
+            width:            10%

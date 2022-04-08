@@ -9,7 +9,7 @@ from alembic import op
 import sqlalchemy as sa
 import importlib
 import logging
-import webapp2.extensions.database
+import webapp.extensions.database
 from sqlalchemy import orm
 
 
@@ -47,8 +47,8 @@ def upgrade():
     )
     op.create_table('locking',
     sa.Column('l_id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('l_user', webapp2.extensions.database.LONGTEXT(), nullable=False),
-    sa.Column('l_table', webapp2.extensions.database.LONGTEXT(), nullable=False),
+    sa.Column('l_user', webapp.extensions.database.LONGTEXT(), nullable=False),
+    sa.Column('l_table', webapp.extensions.database.LONGTEXT(), nullable=False),
     sa.Column('l_record_id', sa.Integer(), nullable=False),
     sa.Column('l_start_date', sa.DateTime(), nullable=False),
     sa.PrimaryKeyConstraint('l_id', name=op.f('pk_locking'))
@@ -67,29 +67,29 @@ def upgrade():
     sa.Column('n_keep', sa.Boolean(), nullable=True),
     sa.Column('n_start_date', sa.Date(), nullable=False),
     sa.Column('n_end_date', sa.Date(), nullable=True),
-    sa.Column('n_remark', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('n_remark', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.PrimaryKeyConstraint('n_id', name=op.f('pk_news'))
     )
     op.create_table('roles',
     sa.Column('r_id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('r_role', sa.String(length=255), nullable=False),
-    sa.Column('r_remark', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('r_remark', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.PrimaryKeyConstraint('r_id', name=op.f('pk_roles'))
     )
     op.create_table('tracking',
     sa.Column('t_id', sa.Integer(), autoincrement=True, nullable=False),
-    sa.Column('t_user', webapp2.extensions.database.LONGTEXT(), nullable=False),
-    sa.Column('t_table', webapp2.extensions.database.LONGTEXT(), nullable=False),
+    sa.Column('t_user', webapp.extensions.database.LONGTEXT(), nullable=False),
+    sa.Column('t_table', webapp.extensions.database.LONGTEXT(), nullable=False),
     sa.Column('t_action', sa.Integer(), nullable=False),
     sa.Column('t_record_id', sa.Integer(), nullable=False),
     sa.Column('t_change_date_time', sa.DateTime(), nullable=False),
-    sa.Column('t_contents', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('t_contents', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.PrimaryKeyConstraint('t_id', name=op.f('pk_tracking'))
     )
     op.create_table('language_reference',
     sa.Column('lr_id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('lr_la_id', sa.Integer(), nullable=False),
-    sa.Column('tr_text', webapp2.extensions.database.LONGTEXT(), nullable=False),
+    sa.Column('tr_text', webapp.extensions.database.LONGTEXT(), nullable=False),
     sa.Column('lr_lt_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['lr_la_id'], ['language.la_id'], name=op.f('fk_language_reference_lr_la_id_language')),
     sa.ForeignKeyConstraint(['lr_lt_id'], ['language_translates.lt_id'], name=op.f('fk_language_reference_lr_lt_id_language_translates')),
@@ -103,7 +103,7 @@ def upgrade():
     sa.Column('ra_read', sa.Boolean(), nullable=True),
     sa.Column('ra_update', sa.Boolean(), nullable=True),
     sa.Column('ra_delete', sa.Boolean(), nullable=True),
-    sa.Column('r_remark', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('r_remark', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.ForeignKeyConstraint(['ra_ma_id'], ['mod_access.ma_id'], name=op.f('fk_role_access_ra_ma_id_mod_access')),
     sa.ForeignKeyConstraint(['ra_r_id'], ['roles.r_id'], name=op.f('fk_role_access_ra_r_id_roles')),
     sa.PrimaryKeyConstraint('ra_id', name=op.f('pk_role_access'))
@@ -119,10 +119,10 @@ def upgrade():
     sa.Column('u_middle_name', sa.String(length=50), nullable=True),
     sa.Column('u_last_name', sa.String(length=50), nullable=False),
     sa.Column('u_email', sa.String(length=100), nullable=False),
-    sa.Column('u_remark', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('u_remark', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.Column('u_locale', sa.Integer(), nullable=True),
     sa.Column('u_listitems', sa.Integer(), nullable=True),
-    sa.Column('u_profile', webapp2.extensions.database.LONGTEXT(), nullable=True),
+    sa.Column('u_profile', webapp.extensions.database.LONGTEXT(), nullable=True),
     sa.ForeignKeyConstraint(['u_role'], ['roles.r_id'], name=op.f('fk_user_u_role_roles')),
     sa.PrimaryKeyConstraint('u_id', name=op.f('pk_user'))
     )

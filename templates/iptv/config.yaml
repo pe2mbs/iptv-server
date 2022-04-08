@@ -1,0 +1,64 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     config
+    title:                    Configuration
+    class:                    Config
+    uri:                      /api/config
+    menu:
+      caption:                Configuration
+      icon:                   settings
+      index:                  0
+      route:                  /config
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'CH_ID', 'Channel', 'CH_TITLE'  )
+    table:
+      name:                   CONFIG
+      columns:
+        - field:              IF_ID               INT             AUTO NUMBER   PRIMARY KEY
+        - field:              IF_ENABLED          BOOLEAN         DEFAULT 0
+          label:              Enabled
+          ui:
+            type:             checkbox
+            resolve-list:
+              true:           "Yes"
+              false:          "No"
+          listview:
+            index:            0
+            width:            10%
+        - field:              IF_NAME             CHAR( 50 )      NOT NULL
+          label:              Provider name
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            45%
+        - field:              IF_LOCATION         CHAR( 255 )     NOT NULL
+          label:              Provider location
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            45%
+        - field:              IF_USERNAME         CHAR( 50 )      NULL
+          label:              Username
+          ui:
+            type:             textbox
+        - field:              IF_PASSWORD         CHAR( 50 )      NULL
+          label:              Password
+          ui:
+            type:             password
+        - field:              IF_AUTH             INT             DEFAULT 0
+          label:              Authentication method
+          ui:
+            type:             choice
+            resolve-list:
+              0:              No authentication
+              1:              Basic authentication
+              2:              Digest authentication

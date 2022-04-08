@@ -1,0 +1,94 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     movie
+    title:                    Movies
+    class:                    Movie
+    uri:                      /api/movie
+    menu:
+      caption:                Movies
+      icon:                   settings
+      index:                  0
+      route:                  /movie
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'IS_ID', 'Movie', 'IS_NAME'  )
+    table:
+      name:                   MOVIE
+      columns:
+        - field:              IM_ID               INT             AUTO NUMBER     PRIMARY KEY
+        - field:              IM_ENABLED          BOOLEAN         DEFAULT 0
+          label:              Enabled
+          ui:
+            type:             checkbox
+            resolve-list:
+              true:           "Yes"
+              false:          "No"
+          listview:
+            index:            0
+            width:            10%
+        - field:              IM_NAME             CHAR( 64 )      NOT NULL
+          label:              Name
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            40%
+        - field:              IM_STITLE           CHAR( 128 )     NULL
+          label:              Extra title
+          ui:
+            type:             textbox
+        - field:              IM_GROUP            CHAR( 64 )      NOT NULL
+          label:              Group
+          ui:
+            type:             textbox
+          listview:
+            index:            2
+            width:            40%
+        - field:              IM_INDEX            INT             DEFAULT 9999
+          label:              Index
+          ui:
+            type:             number
+          listview:
+            index:            3
+            width:            10%
+        - field:              IM_UPDATE           DATETIME        NULL
+          label:              Update timestamp
+          readonly:           true
+          ui:
+            type:             datetime
+        - field:              IM_DURATION         INT             NULL
+          label:              Duration
+          readonly:           true
+          ui:
+            type:             number
+        - field:              IM_LINK             CHAR( 255 )     NOT NULL
+          label:              Link
+          ui:
+            type:             textbox
+        - field:              IM_TVG_ID           CHAR( 64 )      NULL
+          label:              TVG-ID
+          ui:
+            type:             textbox
+        - field:              IM_TVG_LOGO         CLOB            NULL
+          label:              TVG-LOGO
+          ui:
+            type:             textbox
+        - field:              IM_TVG_NAME         CHAR( 64 )      NULL
+          label:              TVG-NAME
+          ui:
+            type:             textbox
+        - field:              IM_TVG_ATTR         CLOB            NULL
+          label:              TVG-ATTRIBUTES
+          readonly:           true
+          ui:
+            type:             textbox
+        - field:              IM_LOCALE           CHAR( 5 )       NULL
+          label:              Locale
+          ui:
+            type:             textbox

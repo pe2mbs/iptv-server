@@ -9,7 +9,7 @@ from alembic import op
 import sqlalchemy as sa
 import importlib
 import logging
-import webapp2.extensions.database
+import webapp.extensions.database
 from sqlalchemy import orm
 
 

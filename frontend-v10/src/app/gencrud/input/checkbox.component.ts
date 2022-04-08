@@ -18,11 +18,8 @@
 #   Boston, MA 02110-1301 USA
 #
 */
-import { Component,
-         Input, 
-         forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, 
-         FormGroupDirective } from '@angular/forms';
+import { Component, Input,  forwardRef } from '@angular/core';
+import { NG_VALUE_ACCESSOR, FormGroupDirective } from '@angular/forms';
 import { GcBaseComponent, CUSTOM_ANIMATIONS_CONTROLE } from './base.input.component';
 
 
@@ -32,18 +29,13 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
     multi: true
 };
 
+
 @Component( {
     // tslint:disable-next-line:component-selector
     selector: 'gc-checkbox-input',
     template: `<div class="form">
-    <mat-checkbox class="custom-input__input"
-                  id="{{ id }}"
-                  [color]="color"
-                  [attr.readonly]="readonly"
-                  [attr.readonly]="disabled"
-                  [labelPosition]="labelPosition"
-                  [(indeterminate)]="indeterminate"
-                  [formControl]="control">
+    <mat-checkbox class="custom-input__input" id="{{ id }}" [color]="color" [attr.readonly]="readonly" [attr.readonly]="disabled"
+                  [labelPosition]="labelPosition" [(indeterminate)]="indeterminate" [formControl]="control">
         {{ placeholder }}
     </mat-checkbox>
 </div><br/>`,

@@ -128,6 +128,7 @@ import { BackendErrorDialogComponent } from './error-dialog/backend-errordialog.
 import { ErrorDialogService } from './error-dialog/errordialog.service';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MessageDialogComponent } from './message-dialog/message.dialog.component';
+import { GcChoiceVirtualInputComponent } from './input/choice.virtual.component';
 
 
 
@@ -179,7 +180,8 @@ const importExportModules = [
 const declareExportComponents = [
 	GcTextInputComponent,
 	GcChoiceInputComponent,
-	GcChoiceAutoInputComponent,
+    GcChoiceAutoInputComponent,
+	GcChoiceVirtualInputComponent,
 	GcComboInputComponent,
 	GcDateInputComponent,
 	GcDatePickerInputComponent,

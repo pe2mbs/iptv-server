@@ -1,0 +1,64 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     bouget
+    title:                    Bouget
+    class:                    Bouget
+    uri:                      /api/bouget
+    menu:
+      caption:                Bouget
+      icon:                   settings
+      index:                  0
+      route:                  /bouget
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'IB_ID', 'Bouget', 'IB_NAME'  )
+    table:
+      name:                   BOUGET
+      columns:
+        - field:              IB_ID               INT             AUTO NUMBER  PRIMARY KEY
+        - field:              IB_ENABLED          BOOLEAN         DEFAULT 0
+          label:              Enabled
+          ui:
+            type:             checkbox
+            resolve-list:
+              true:           "Yes"
+              false:          "No"
+          listview:
+            index:            0
+            width:            10%
+        - field:              IB_NAME             CHAR( 64 )      NOT NULL
+          label:              Name
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            40%
+        - field:              IB_ALIAS            CHAR( 64 )      NULL
+          label:              Name
+          ui:
+            type:             textbox
+          listview:
+            index:            2
+            width:            40%
+        - field:              IB_INDEX            INT             NULL
+          label:              Index
+          ui:
+            type:             number
+          listview:
+            index:            3
+            width:            10%
+        - field:              IB_UPDATE           DATETIME        NULL
+          label:              Update timestamp
+          readonly:           true
+          ui:
+            type:             datetime
+        - field:              IB_LOCALE           CHAR( 5 )       NULL
+          label:              Locale
+          ui:
+            type:             textbox

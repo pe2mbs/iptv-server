@@ -110,6 +110,31 @@ export interface GcSelectList
     label: string;
 }
 
+export interface VirtualScrollSort
+{
+    column:     string;                 // Sorting field
+    direction:  string;                 // asc, desc
+}
+
+export interface VirtualScrollData
+{
+    value:      string;
+    label:      string,
+    page:       number;                 // Page requested
+    pageSize:   number;                 // Page size requested
+    current?:   any | null;
+    filter?:    string | null;
+    count?:     number;                 // actual number of items in table
+    last?:      boolean;                // last segement   
+    sorting?:   VirtualScrollSort | null;
+}
+
+export interface VirtualScrollResponse
+{
+    data:   VirtualScrollData;
+    items:  GcSelectList[];
+}
+
 export interface GcTableFilter
 {
 	id: string;

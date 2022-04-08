@@ -1,4 +1,4 @@
-import webapp2.api as API
+import webapp.api as API
 
 
 API.menuItems = [

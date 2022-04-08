@@ -1,0 +1,36 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     replace
+    title:                    Replace
+    class:                    Replace
+    uri:                      /api/replace
+    menu:
+      caption:                Replace
+      icon:                   settings
+      index:                  0
+      route:                  /replace
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'IS_ID', 'Replacement', 'IS_NAME'  )
+    table:
+      name:                   REPLACE
+      columns:
+        - field:              IR_ID               INT             AUTO NUMBER     PRIMARY KEY
+        - field:              IR_FIND             CHAR( 128 )     NOT NULL
+          ui:
+            type:             textbox
+          listview:
+            index:            0
+            width:            50%
+        - field:              IR_REPLACE          CHAR( 128 )     NOT NULL
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            50%

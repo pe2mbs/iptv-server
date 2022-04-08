@@ -18,14 +18,15 @@
 #   Boston, MA 02110-1301 USA
 #
 */
-import { Component,
-         Input, 
-         forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR, 
-         FormGroupDirective } from '@angular/forms';
+import { Component, Input, forwardRef, OnInit } from '@angular/core';
+import { NG_VALUE_ACCESSOR, FormGroupDirective } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { GcBaseComponent } from './base.input.component';
 import { Router } from '@angular/router';
+import { GcCrudServiceBase } from '../crud/crud.service.base';
+import { GcSelectList } from '../crud/model';
+import { isNullOrUndefined } from 'util';
+import { HttpClient } from '@angular/common/http';
 
 
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
@@ -60,16 +61,54 @@ export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
         ]
     ) ]
 } )
-export class GcChoiceAutoInputComponent extends GcBaseComponent
+export class GcChoiceAutoInputComponent extends GcBaseComponent implements OnInit
 {
-    @Input() items;
-    public selected: any;
-    @Input() detail_button: string = null;
-    @Input() detail_id: string = null;
+    @Input()    items:          GcSelectList[];
+    @Input()    detail_button:  string = null;
+    @Input()    detail_id:      string = null;
 
-    constructor( formGroupDir: FormGroupDirective, public router: Router )
+    @Input()    service:        GcCrudServiceBase<any> | null = null;  
+    @Input()    labelField:     string | null = null;
+    @Input()    valueField:     string | null = null;
+    @Input()    serviceUri:     string | null = null;   
+
+    public      selected:       any;
+    public      loading:        boolean = false;
+
+    constructor( formGroupDir: FormGroupDirective, public router: Router, private http: HttpClient )
     {
         super( formGroupDir );
+        return;
+    }
+
+    public ngOnInit()
+    {
+        super.ngOnInit();
+        if ( !isNullOrUndefined( this.service ) )
+        {
+            console.log( `Loading from service : ${this.valueField}: ${this.labelField}` )
+            this.loading = true;
+            // We got the service 
+            this.registerSubscription( this.service.getSelectList( this.valueField, this.labelField
+                                        ).subscribe( dataList => {
+                this.items = dataList;
+                this.loading = false;
+            } ) );
+        }
+        else if ( !isNullOrUndefined( this.serviceUri ) )
+        {
+            this.loading = true;
+            console.log( `Loading from url ${this.serviceUri} : ${this.valueField}: ${this.labelField}` )
+            this.http.post<GcSelectList[]>( this.serviceUri, { value: this.valueField, label: this.labelField } 
+                                        ).subscribe( data => {
+                this.items = data;
+                this.loading = false;
+            });
+        }
+        else
+        {
+            console.log( `Items provided: ${this.items.length}` );
+        }
         return;
     }
 

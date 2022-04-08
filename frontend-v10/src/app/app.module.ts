@@ -30,6 +30,14 @@ import { M3uModule } from './iptv/m3u/module';
 import { M3uAttrModule } from './iptv/m3u_attr/module';
 import { BougetModule } from './iptv/bougets/module';
 import { ChannelModule } from './iptv/channels/module';
+import { EpisodeModule } from './iptv/episode/module';
+import { AliasModule } from './iptv/alias/module';
+import { BougetModule } from './iptv/bouget/module';
+import { ChannelModule } from './iptv/channel/module';
+import { ConfigModule } from './iptv/config/module';
+import { MovieModule } from './iptv/movie/module';
+import { ReplaceModule } from './iptv/replace/module';
+import { SerieModule } from './iptv/serie/module';
 
 
 registerLocaleData(localeNl);
@@ -70,6 +78,12 @@ registerLocaleData(localeNl);
     M3uAttrModule,
     BougetModule,
     ChannelModule,
+    EpisodeModule,
+    AliasModule,
+    ConfigModule,
+    MovieModule,
+    ReplaceModule,
+    SerieModule,
     UserModule
   ],
   providers: [

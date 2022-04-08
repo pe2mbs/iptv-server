@@ -1,39 +1,9 @@
 import os
 from flask import Blueprint, request, jsonify
-import webapp2.api as API
+import webapp.api as API
 import traceback
 from mako.template import Template
 
-# @API.coreApi.route( '/api/help/<helpitem>', methods=[ 'GET' ] )
-# def getHelp( helpitem ):
-#     if '-' in helpitem:
-#         helpmodule, helptopic = helpitem.split( '-', 1 )
-#
-#     else:
-#         helpmodule = helptopic = helpitem
-#
-#     API.logger.info("Help information: module: '{}', topic: '{}'".format( helpmodule, helptopic ) )
-#     helpPath = os.path.abspath( os.path.join( API.app.config.get( 'API_MODULE' ),
-#                                               helpmodule,
-#                                               "{}.md".format( helptopic ) ) )
-#     if os.path.isfile( helpPath ):
-#         try:
-#             with open( helpPath, 'r' ) as stream:
-#                 result = stream.read()
-#
-#         except FileNotFoundError:
-#             result = "No help available"
-#
-#     else:
-#         helpPath = os.path.abspath( API.app.config.get( 'HELP_PATH', 'help' ) )
-#         try:
-#             with open( os.path.join( helpPath, "{}.md".format( helpitem ) ), 'r' ) as stream:
-#                 result = stream.read()
-#
-#         except FileNotFoundError:
-#             result = "No help available"
-#
-#     return jsonify( result )
 
 DEFAULT_NO_HELP = """# No help available
     
@@ -45,6 +15,7 @@ For more information, please contact :
 
 """
 helpPaths = [ '.' ]
+
 
 def includeFunc( filename ):
     global helpPaths

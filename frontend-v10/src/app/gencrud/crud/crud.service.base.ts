@@ -1,13 +1,13 @@
 import { HttpClient, HttpErrorResponse, HttpParams, HttpHeaders } from '@angular/common/http';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { GcPagingRequest, GcPagingData, GcSelectList } from './model';
+import { Observable } from 'rxjs';
+import { GcPagingRequest, GcPagingData, GcSelectList, VirtualScrollData, VirtualScrollResponse } from './model';
 import { GcBackendError } from './backend.error';
 import { tap } from 'rxjs/operators';
 import { GcFilterRecord } from './filter.record';
 import { Injectable } from '@angular/core';
 
 
-class ObservableService<T>
+export class ObservableService<T>
 {
 	public api: string;
 	public debug: boolean = false;
@@ -23,10 +23,10 @@ class ObservableService<T>
 	
 	/** CRUD METHODS */
 	public getPage( page: number, 
-		size: number, 
-		sort_direction: string,
-		sort_column: string, 
-		filterRecord: GcFilterRecord ): Observable<GcPagingData> 
+                    size: number, 
+                    sort_direction: string,
+                    sort_column: string, 
+                    filterRecord: GcFilterRecord ): Observable<GcPagingData> 
 	{
 		const pagingRequest: GcPagingRequest = {
 			pageIndex: page,
@@ -166,7 +166,25 @@ class ObservableService<T>
 				}
 			);
 		} ) );
-	}
+    }
+    
+    public getSelectListVirtual( virtual: VirtualScrollData ): Observable<VirtualScrollResponse> 
+    {
+		return ( Observable.create( observer => {
+			this.httpClient.post<VirtualScrollResponse[]>( this.api + '/select-virtual', virtual ).subscribe( data => {
+                if ( this.debug )
+                {
+                    console.log( 'getSelectListVirtual() => ', data );
+                }
+                observer.next( data );
+                observer.complete();
+            },
+            ( error: HttpErrorResponse ) => {
+                throw new GcBackendError( error.message, error.error );
+            } );
+		} ) );
+        return ( null );
+    }
 	
 	public lockRecord( record: T ): void
 	{
@@ -365,6 +383,10 @@ class PromiseService<T>
 		} );	
 	}
 
+    public getSelectListVirtual( virtual: VirtualScrollData ): Promise<VirtualScrollResponse> 
+    {
+        return ( null );
+    }
 
 	public promisePut( uri: string, params: any ): Promise<any>
     {
@@ -410,7 +432,6 @@ class PromiseService<T>
     }
 
 }
-
 
 
 @Injectable()
@@ -467,7 +488,12 @@ export class GcCrudServiceBase<T>
     {
 		return ( this.observe.getSelectionList( value, label, initial, final ) );
 	}
-	
+
+    public getSelectListVirtual( virtual: VirtualScrollData ): Observable<VirtualScrollResponse> 
+    {
+        return ( this.observe.getSelectListVirtual( virtual ) );
+    }
+
     public lockRecord( record: T ): void
     {
 		this.observe.lockRecord( record ); 

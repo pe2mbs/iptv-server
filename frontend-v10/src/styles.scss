@@ -7,10 +7,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import 'theme-purple.scss';
 @import 'theme-equensworldline.scss';
 
-.standard-container 
+// NPO 3@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+.standard-container
 {
-	height: 100%; 
-	width: 100%; 
+	height: 100%;
+	width: 100%;
 }
 
 .mat-list-base
@@ -18,13 +21,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	padding: 0px!important;
 }
 
-.mat-list-item 
+.mat-list-item
 {
 	padding: 0px;
 }
 
 .mat-list-item-content
-{ 
+{
 	padding-left: 0px!important;
 	padding-right: 8px!important;
 }

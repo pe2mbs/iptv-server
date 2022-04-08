@@ -1,5 +1,6 @@
 from flask import jsonify
-import webapp2.api as API
+import webapp.api as API
+
 
 class NewsMixinInterface( object ):
     # to_zone = gettz('Europe/Amsterdam' )

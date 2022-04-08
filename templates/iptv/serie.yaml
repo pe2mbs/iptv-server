@@ -1,0 +1,60 @@
+project_defaults:             !include include/iptv-defaults.yaml
+objects:
+  - name:                     serie
+    title:                    Series
+    class:                    Serie
+    uri:                      /api/serie
+    menu:
+      caption:                Series
+      icon:                   settings
+      index:                  0
+      route:                  /serie
+    actions:
+      - !include include/default-action-add.yaml
+      - !include include/default-action-edit.yaml
+      - name:                 delete
+        label:                Delete
+        type:                 dialog
+        icon:                 delete
+        position:             cell
+        function:             core.deleteRecord( idx, row, 'IS_ID', 'Serie', 'IS_NAME'  )
+    table:
+      name:                   SERIE
+      columns:
+        - field:              IS_ID               INT             AUTO NUMBER     PRIMARY KEY
+        - field:              IS_ENABLED          BOOLEAN         DEFAULT 0
+          label:              Enabled
+          ui:
+            type:             checkbox
+            resolve-list:
+              true:           "Yes"
+              false:          "No"
+          listview:
+            index:            0
+            width:            10%
+        - field:              IS_NAME             CHAR( 64 )      NOT NULL
+          label:              Name
+          ui:
+            type:             textbox
+          listview:
+            index:            1
+            width:            60%
+        - field:              IS_INDEX            INT             NULL
+          label:              Index
+          ui:
+            type:             number
+          listview:
+            index:            3
+            width:            10%
+        - field:              IS_LOCALE           CHAR( 5 )       NULL
+          label:              Index
+          ui:
+            type:             number
+          listview:
+            index:            3
+            width:            20%
+        - field:              IS_UPDATE           DATETIME        NULL
+          label:              Update timestamp
+          readonly:           true
+          ui:
+            type:             datetime

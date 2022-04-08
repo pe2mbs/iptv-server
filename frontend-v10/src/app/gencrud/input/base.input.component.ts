@@ -21,6 +21,7 @@
 import { Input, OnChanges, OnInit, AfterViewInit, Component } from '@angular/core';
 import { FormControl, FormGroupDirective, ControlValueAccessor } from '@angular/forms';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { GcSubscribers } from '../subscribers';
 
 export const CUSTOM_ANIMATIONS_CONTROLE: any = [ trigger(
     'visibilityChanged', [
@@ -34,7 +35,7 @@ export const CUSTOM_ANIMATIONS_CONTROLE: any = [ trigger(
 @Component({
 	template: ''
 })
-export class GcBaseComponent implements ControlValueAccessor, OnChanges, OnInit, AfterViewInit
+export class GcBaseComponent extends GcSubscribers implements ControlValueAccessor, OnChanges, OnInit, AfterViewInit
 {
     @Input()       			debug: boolean = false;
     @Input()       			error: boolean = false;
@@ -64,6 +65,7 @@ export class GcBaseComponent implements ControlValueAccessor, OnChanges, OnInit,
 
     constructor( fgd: FormGroupDirective )
     {
+        super();
         this.formGroupDir = fgd;
         return;
     }
@@ -101,7 +103,7 @@ export class GcBaseComponent implements ControlValueAccessor, OnChanges, OnInit,
         return ( result );
     }
 
-    ngOnInit()
+    public ngOnInit()
     {
 		if ( this.debug )
 		{

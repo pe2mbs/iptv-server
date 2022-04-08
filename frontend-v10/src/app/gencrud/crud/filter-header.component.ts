@@ -1,18 +1,15 @@
-import { Component,
-		 EventEmitter,
-		 Input,
-		 ChangeDetectionStrategy,
-		 Output, 
-		 OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, ChangeDetectionStrategy, Output,  OnInit } from '@angular/core';
 import { Directive, HostListener } from "@angular/core";
 import { isNullOrUndefined } from 'util';
 import { GcConditionItem } from './model';
 import { GcFilterRecord, GcFilterEvent } from './filter.record';
 
+
 export const CONDITIONS_LIST_SIMPLE: GcConditionItem[] = [
 	{ value: "EQ", 		label: "Is equal ==", param: 0 },
 	{ value: "!EQ", 	label: "Is not equal !=", param: 0 },
 ];
+
 
 export const CONDITIONS_LIST: GcConditionItem[] = [
 	{ value: "EQ", 		label: "Is equal ==", param: 1 },
@@ -30,6 +27,7 @@ export const CONDITIONS_LIST: GcConditionItem[] = [
 	{ value: "!EM", 	label: "Is not empty", param: -1 },
 ];
 
+
 export const CONDITION_FIELDS = {
 	// Default value is 1
 	"BT": 2,
@@ -38,12 +36,10 @@ export const CONDITION_FIELDS = {
 };
 
 
-
-
-@Directive({
+@Directive( {
 	// tslint:disable-next-line:directive-selector
 	selector: "[mat-filter-item]"
-})
+} )
 export class GcFilterItemDirective
 {
 	@HostListener( "click", [ "$event" ] ) onClick( e: MouseEvent )
