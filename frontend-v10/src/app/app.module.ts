@@ -26,10 +26,6 @@ import { WidgetWrapperComponent } from './modules/widget-wrapper/widget-wrapper.
 import { WeatherWidgetComponent } from './modules/widgets/weather-widget/weather-widget.component';
 import { VelocityWidgetComponent } from './modules/widgets/velocity-widget/velocity-widget.component';
 import { NewsModule } from './backend/news/module';
-import { M3uModule } from './iptv/m3u/module';
-import { M3uAttrModule } from './iptv/m3u_attr/module';
-import { BougetModule } from './iptv/bougets/module';
-import { ChannelModule } from './iptv/channels/module';
 import { EpisodeModule } from './iptv/episode/module';
 import { AliasModule } from './iptv/alias/module';
 import { BougetModule } from './iptv/bouget/module';
@@ -74,8 +70,6 @@ registerLocaleData(localeNl);
     RoleAccessModule,
     ModuleAccessModule,
     NewsModule,
-    M3uModule,
-    M3uAttrModule,
     BougetModule,
     ChannelModule,
     EpisodeModule,

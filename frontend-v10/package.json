@@ -43,6 +43,7 @@
     "ngx-material-timepicker": "^5.5.3",
     "ngx-monaco-editor": "^8.1.1",
     "node-sass": "^4.8.3",
+    "passive-events-support": "^1.0.33",
     "primeicons": "^4.1.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

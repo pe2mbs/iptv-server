@@ -8,7 +8,7 @@
     u_last_name: testing
     u_email: test@example.com
     u_locale: 1
-    u_listitems: 10 }
+    u_listitems: 10
 -   u_id: 2
     u_active: 1
     u_name: testuser

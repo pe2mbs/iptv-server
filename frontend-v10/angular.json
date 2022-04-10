@@ -44,7 +44,7 @@
               {
                 "glob": "** /*",
                 "input": "node_modules/monaco-editor/min-maps/",
-                "output": "./assets/monaco/"
+                "output": "./assets/min-maps/"
               }
             ],
             "styles": [
