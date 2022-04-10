@@ -154,3 +154,7 @@ test.db
 test.db-journal
 
 data/
+log/
+
+# Webapp package
+webapp2/
