@@ -13,7 +13,7 @@
  % endif
 % endfor
 % if obj.table.hasTabs():
-            <mat-tab-group fxFlex="100">
+            <mat-tab-group fxFlex="100" (selectedTabChange)="onTabChanged( $event )" [selectedIndex]="tabIndex">
 %  for label in obj.table.tabs().labels:
                 <mat-tab label="${ label }" id="${obj.name}.tab.${ label.lower().replace(' ', '_' ) }" fxFlex="100">
 %   if obj.table.tabs().hasComponent( label ):

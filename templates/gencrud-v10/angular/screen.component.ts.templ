@@ -25,7 +25,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { GcScreenBase } from 'src/app/gencrud/crud/crud.screen.base';
 import { ${obj.cls}DataService } from './service';
 import { ${obj.cls}Record } from './model';
-
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 % for field in obj.table.columns:
  % if field.ui is not None and ( field.ui.isUiType( 'choice', 'choice-auto-complete', 'combo' ) ):
 import { GcSelectList } from 'src/app/gencrud/crud/model';
@@ -66,9 +66,11 @@ export class Screen${obj.cls}Component extends GcScreenBase<${obj.cls}Record> im
 
     constructor( route: ActivatedRoute
                , dataService: ${obj.cls}DataService
-${ obj.externalService }  )
+               , profileService: GcProfileService
+${ obj.externalService }
+    )
     {
-        super( route, dataService );
+        super( 'Screen${obj.cls}Component', route, dataService, profileService );
         this.row = new ${obj.cls}Record();
         this.formGroup = new FormGroup( {
 % for field in obj.table.columns:

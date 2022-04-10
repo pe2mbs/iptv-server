@@ -44,8 +44,22 @@ class ${ obj.cls }Schema( ${ schemaClasses( obj ) } ):
 %  endif
 % endfor
 
+    __field_set__ = {
+% for field in obj.table.columns:
+%  if field.schemaType in ( 'Integer', 'Boolean' ):
+        '${ field.name }': 0,
+%  else:
+        '${ field.name }': '',
+%  endif
+% endfor
+    }
+
     @post_dump
     def post_dump_process( self, in_data, **kwargs ):
+        for field, default in self.__field_set__.items():
+            if in_data[ field ] is None:
+                in_data[ field ] = default
+
 % for field in obj.table.columns:
 %  if field.ui is not None and field.hasResolveList():
         in_data[ '${ field.name }_LABEL' ] = value2Label( ${ field.ui.resolveListPy }, in_data[ '${field.name}' ] )
