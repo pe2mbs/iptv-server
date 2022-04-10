@@ -1,0 +1,22 @@
+<mat-card id="config.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="config"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="config.form">
+            <gc-checkbox-input id="config.IF_ENABLED" placeholder="Enabled" fxFlex="60px" error="true" labelPosition="after" formControlName="IF_ENABLED"></gc-checkbox-input>
+            <gc-text-input id="config.IF_NAME" placeholder="Provider name" fxFlex="60px" error="true" formControlName="IF_NAME"></gc-text-input>
+            <gc-text-input id="config.IF_LOCATION" placeholder="Provider location" fxFlex="60px" error="true" formControlName="IF_LOCATION"></gc-text-input>
+            <gc-text-input id="config.IF_USERNAME" placeholder="Username" fxFlex="60px" error="true" formControlName="IF_USERNAME"></gc-text-input>
+            <gc-password-input id="config.IF_PASSWORD" placeholder="Password" fxFlex="60px" error="true" formControlName="IF_PASSWORD"></gc-password-input>
+            <gc-choice-input id="config.IF_AUTH" placeholder="Authentication method" fxFlex="60px" error="true" [items]="IF_AUTHList" formControlName="IF_AUTH"></gc-choice-input>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="config.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="config.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>

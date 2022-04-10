@@ -47,7 +47,7 @@ objects:
             index:            3
             width:            10%
         - field:              IS_LOCALE           CHAR( 5 )       NULL
-          label:              Index
+          label:              Locale
           ui:
             type:             number
           listview:

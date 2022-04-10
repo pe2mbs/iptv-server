@@ -40,7 +40,7 @@ objects:
             index:            1
             width:            40%
         - field:              IB_ALIAS            CHAR( 64 )      NULL
-          label:              Name
+          label:              Alias
           ui:
             type:             textbox
           listview:

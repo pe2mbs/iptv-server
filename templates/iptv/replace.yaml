@@ -23,12 +23,14 @@ objects:
       columns:
         - field:              IR_ID               INT             AUTO NUMBER     PRIMARY KEY
         - field:              IR_FIND             CHAR( 128 )     NOT NULL
+          label:              Find
           ui:
             type:             textbox
           listview:
             index:            0
             width:            50%
         - field:              IR_REPLACE          CHAR( 128 )     NOT NULL
+          label:              Replace
           ui:
             type:             textbox
           listview:

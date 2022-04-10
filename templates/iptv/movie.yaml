@@ -20,6 +20,10 @@ objects:
         function:             core.deleteRecord( idx, row, 'IS_ID', 'Movie', 'IS_NAME'  )
     table:
       name:                   MOVIE
+      tabs:
+        labels:
+          - General
+          - M3U
       columns:
         - field:              IM_ID               INT             AUTO NUMBER     PRIMARY KEY
         - field:              IM_ENABLED          BOOLEAN         DEFAULT 0
@@ -32,6 +36,11 @@ objects:
           listview:
             index:            0
             width:            10%
+            sort:             true
+            filter:           true
+          tab:
+            index:            0
+            label:            General
         - field:              IM_NAME             CHAR( 64 )      NOT NULL
           label:              Name
           ui:
@@ -39,10 +48,18 @@ objects:
           listview:
             index:            1
             width:            40%
+            sort:             true
+            filter:           true
+          tab:
+            index:            1
+            label:            General
         - field:              IM_STITLE           CHAR( 128 )     NULL
           label:              Extra title
           ui:
             type:             textbox
+          tab:
+            index:            2
+            label:            General
         - field:              IM_GROUP            CHAR( 64 )      NOT NULL
           label:              Group
           ui:
@@ -50,6 +67,11 @@ objects:
           listview:
             index:            2
             width:            40%
+            sort:             true
+            filter:           true
+          tab:
+            index:            3
+            label:            General
         - field:              IM_INDEX            INT             DEFAULT 9999
           label:              Index
           ui:
@@ -57,38 +79,67 @@ objects:
           listview:
             index:            3
             width:            10%
+            sort:             true
+            filter:           true
+          tab:
+            index:            4
+            label:            General
         - field:              IM_UPDATE           DATETIME        NULL
           label:              Update timestamp
           readonly:           true
           ui:
             type:             datetime
+          tab:
+            index:            5
+            label:            General
         - field:              IM_DURATION         INT             NULL
           label:              Duration
           readonly:           true
           ui:
             type:             number
+          tab:
+            index:            0
+            label:            M3U
         - field:              IM_LINK             CHAR( 255 )     NOT NULL
           label:              Link
           ui:
             type:             textbox
+          tab:
+            index:            1
+            label:            M3U
         - field:              IM_TVG_ID           CHAR( 64 )      NULL
           label:              TVG-ID
           ui:
             type:             textbox
+          tab:
+            index:            2
+            label:            M3U
         - field:              IM_TVG_LOGO         CLOB            NULL
           label:              TVG-LOGO
           ui:
             type:             textbox
+          tab:
+            index:            3
+            label:            M3U
         - field:              IM_TVG_NAME         CHAR( 64 )      NULL
           label:              TVG-NAME
           ui:
             type:             textbox
+          tab:
+            index:            4
+            label:            M3U
         - field:              IM_TVG_ATTR         CLOB            NULL
           label:              TVG-ATTRIBUTES
           readonly:           true
           ui:
             type:             textbox
+          tab:
+            index:            5
+            label:            M3U
         - field:              IM_LOCALE           CHAR( 5 )       NULL
           label:              Locale
           ui:
             type:             textbox
+          tab:
+            index:            6
+            label:            M3U

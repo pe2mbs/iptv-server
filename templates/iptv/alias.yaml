@@ -19,22 +19,25 @@ objects:
         position:             cell
         function:             core.deleteRecord( idx, row, 'IA_ID', 'Alias', 'IA_NAME'  )
     table:
-      name:                   CHANNEL
+      name:                   ALIAS
       columns:
         - field:              IA_ID               INT             AUTO NUMBER   PRIMARY KEY
         - field:              IA_NAME             CHAR( 64 )      NOT NULL
+          label:              Name
           ui:
             type:             textbox
           listview:
             index:            0
             width:            45%
         - field:              IA_ALIAS            CHAR( 64 )      NOT NULL
+          label:              Alias
           ui:
             type:             textbox
           listview:
             index:            1
             width:            45%
         - field:              IA_INDEX            INT             NULL
+          label:              Index
           ui:
             type:             number
           listview:

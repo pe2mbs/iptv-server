@@ -1,0 +1,41 @@
+<mat-card id="movie.details" fxLayout="column" class="max-box">
+	<mat_card-header fxFlex="50px" class="header-breadcrumb">
+		<div fxFlex fxLayout="row">
+			<gc-breadcrumb fxFlex="95"></gc-breadcrumb>
+			<gc-help fxFlex="5" fxLayoutAlign="end" helpitem="movie"></gc-help>
+		</div>
+	</mat_card-header>
+    <mat-card-content fxFlex="100">
+        <form fxLayout="column" (ngSubmit)="onSaveClick" [formGroup]="formGroup" id="movie.form">
+            <mat-tab-group fxFlex="100" (selectedTabChange)="onTabChanged( $event )" [selectedIndex]="tabIndex">
+                <mat-tab label="General" id="movie.tab.general" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-checkbox-input id="movie.IM_ENABLED" placeholder="Enabled" fxFlex="60px" error="true" labelPosition="after" formControlName="IM_ENABLED"></gc-checkbox-input>
+                        <gc-text-input id="movie.IM_NAME" placeholder="Name" fxFlex="60px" error="true" formControlName="IM_NAME"></gc-text-input>
+                        <gc-text-input id="movie.IM_STITLE" placeholder="Extra title" fxFlex="60px" error="true" formControlName="IM_STITLE"></gc-text-input>
+                        <gc-text-input id="movie.IM_GROUP" placeholder="Group" fxFlex="60px" error="true" formControlName="IM_GROUP"></gc-text-input>
+                        <gc-number-input id="movie.IM_INDEX" placeholder="Index" fxFlex="60px" error="true" formControlName="IM_INDEX"></gc-number-input>
+                        <gc-datetime-input id="movie.IM_UPDATE" placeholder="Update timestamp" fxFlex="60px" error="true" readonly="true" format="text" formControlName="IM_UPDATE"></gc-datetime-input>
+                    </mat-card>
+
+                </mat-tab>
+                <mat-tab label="M3U" id="movie.tab.m3u" fxFlex="100">
+                    <mat-card fxLayout="column" class="max-box">
+                        <gc-number-input id="movie.IM_DURATION" placeholder="Duration" fxFlex="60px" error="true" readonly="true" formControlName="IM_DURATION"></gc-number-input>
+                        <gc-text-input id="movie.IM_LINK" placeholder="Link" fxFlex="60px" error="true" formControlName="IM_LINK"></gc-text-input>
+                        <gc-text-input id="movie.IM_TVG_ID" placeholder="TVG-ID" fxFlex="60px" error="true" formControlName="IM_TVG_ID"></gc-text-input>
+                        <gc-text-input id="movie.IM_TVG_LOGO" placeholder="TVG-LOGO" fxFlex="60px" error="true" formControlName="IM_TVG_LOGO"></gc-text-input>
+                        <gc-text-input id="movie.IM_TVG_NAME" placeholder="TVG-NAME" fxFlex="60px" error="true" formControlName="IM_TVG_NAME"></gc-text-input>
+                        <gc-text-input id="movie.IM_TVG_ATTR" placeholder="TVG-ATTRIBUTES" fxFlex="60px" error="true" readonly="true" formControlName="IM_TVG_ATTR"></gc-text-input>
+                        <gc-text-input id="movie.IM_LOCALE" placeholder="Locale" fxFlex="60px" error="true" formControlName="IM_LOCALE"></gc-text-input>
+                    </mat-card>
+
+                </mat-tab>
+            </mat-tab-group>
+        </form>
+    </mat-card-content>
+    <mat-card-actions fxFlex="50px">
+        <button mat-button id="movie.submit" (click)="onSaveClick()" [disabled]="!formGroup.valid" >Save</button>
+        <button mat-button id="movie.cancel" (click)="onCancelClick()" tabindex="-1">Cancel</button>
+    </mat-card-actions>
+</mat-card>
