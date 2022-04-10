@@ -1,28 +1,33 @@
 import { FormGroup, FormControl } from '@angular/forms';
-import { OnInit, Input, OnDestroy, Component } from '@angular/core';
+import { OnInit, Input, OnDestroy, Component, Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GcCrudServiceBase } from './crud.service.base';
 import { GcSubscribers } from '../subscribers';
+import { GcProfileService } from '../profile/profile.service';
 
 
-@Component( {
-	template: ''
-} )
+// @Component( {
+// 	template: ''
+// } )
+@Injectable()
 // tslint:disable-next-line:component-class-suffix
 export class GcScreenBase<T> extends GcSubscribers implements OnInit, OnDestroy
 {
 	@Input()	id: number;
 	@Input()	value: any;
 	@Input()	mode: string;	// edit, add, filter
-	public row: T;
-	public formGroup: FormGroup;
-	public formControl: FormControl;
-	public sub: any;
-	protected fixedValues: any = null;
-	protected debug: boolean = false;
+	public      row: T;
+	public      formGroup: FormGroup;
+	public      formControl: FormControl;
+	public      sub: any;
+	protected   fixedValues: any = null;
+    protected   debug: boolean = false;
+    public      tabIndex: number = 0;
 
-	constructor( protected route: ActivatedRoute
-			   , public dataService: GcCrudServiceBase<T> )
+	constructor( protected name: string,
+                 protected route: ActivatedRoute
+               , public dataService: GcCrudServiceBase<T>
+               , public profileService: GcProfileService )
 	{
 		super();
 		return;
@@ -33,7 +38,7 @@ export class GcScreenBase<T> extends GcSubscribers implements OnInit, OnDestroy
 		return;
 	}
 
-	ngOnInit()
+	public ngOnInit(): void 
     {
         if ( this.id === undefined || this.id === null )
         {
@@ -54,10 +59,17 @@ export class GcScreenBase<T> extends GcSubscribers implements OnInit, OnDestroy
                 this.dataService.lockRecord( this.row );
             } ) );
         }
+        this.tabIndex = this.profileService.getNumber( `${this.name}.tabIndex`, 0 );
         return;
-	}
-	
-	public ngOnDestroy()
+    }
+    
+    public onTabChanged( $event ): void 
+    {
+        console.log( 'onTabChanged', $event );
+        this.profileService.setNumber( `${this.name}.tabIndex`, this.tabIndex );
+    }
+
+	public ngOnDestroy(): void 
     {
 		this.dataService.unlockRecord( this.row );
         super.ngOnDestroy();

@@ -36,7 +36,7 @@ export class ObservableService<T>
 		{
 			pagingRequest.sorting = {
 				column: sort_column,
-				direction: sort_direction
+				direction: sort_direction as "desc" | "asc"
 			};
 		}
 		if ( filterRecord != null )

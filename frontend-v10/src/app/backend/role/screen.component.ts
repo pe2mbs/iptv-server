@@ -25,6 +25,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { GcScreenBase } from 'src/app/gencrud/crud/crud.screen.base';
 import { RoleDataService } from './service';
 import { RoleRecord } from './model';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 
 @Component({
@@ -38,9 +39,10 @@ export class ScreenRoleComponent extends GcScreenBase<RoleRecord> implements OnI
 
     constructor( route: ActivatedRoute
                , dataService: RoleDataService
+               , profileService: GcProfileService
   )
     {
-        super( route, dataService );
+        super( 'ScreenRoleComponent', route, dataService, profileService );
         this.row = new RoleRecord();
         this.formGroup = new FormGroup( {
             R_ROLE: new FormControl( this.row.R_ROLE || '',

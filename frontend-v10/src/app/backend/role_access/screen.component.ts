@@ -29,6 +29,7 @@ import { RoleAccessRecord } from './model';
 import { GcSelectList } from 'src/app/gencrud/crud/model';
 import { RoleDataService } from '../role/service';
 import { ModuleAccessDataService } from '../mod_access/service';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -83,10 +84,11 @@ export class ScreenRoleAccessComponent extends GcScreenBase<RoleAccessRecord> im
 
     constructor( route: ActivatedRoute
                , dataService: RoleAccessDataService
+               , profileService: GcProfileService
                  , public roleService: RoleDataService
                  , public mod_accessService: ModuleAccessDataService  )
     {
-        super( route, dataService );
+        super( 'ScreenRoleAccessComponent', route, dataService, profileService );
         this.row = new RoleAccessRecord();
         this.formGroup = new FormGroup( {
             RA_R_ID: new FormControl( this.row.RA_R_ID || 0,

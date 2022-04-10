@@ -25,6 +25,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { GcScreenBase } from 'src/app/gencrud/crud/crud.screen.base';
 import { NewsDataService } from './service';
 import { NewsRecord } from './model';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 
 @Component({
@@ -68,9 +69,10 @@ export class ScreenNewsComponent extends GcScreenBase<NewsRecord> implements OnI
 
     constructor( route: ActivatedRoute
                , dataService: NewsDataService
+               , profileService: GcProfileService
   )
     {
-        super( route, dataService );
+        super( 'ScreenNewsComponent', route, dataService, profileService );
         this.row = new NewsRecord();
         this.formGroup = new FormGroup( {
             N_MESSAGE: new FormControl( this.row.N_MESSAGE || '',

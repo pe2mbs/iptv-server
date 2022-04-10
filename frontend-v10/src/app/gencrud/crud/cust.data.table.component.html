@@ -32,12 +32,13 @@
 	<mat-card-content fxFlex="100" class="max-box">
 		<mat-table #table class="mat-cell" 
 					[dataSource]="dataSource" 
-					matSort 
-					[matSortActive]="definition.defaultSortField" 
+					matSort>
+<!-- 			
+                    [matSortActive]="definition.defaultSortField" 
 					[matSortDirection]="definition.defaultSortDirection" 
-                    [matSortDisableClear]="definition.sortDisableClear">
-			<ng-container *ngFor="let column of definition.columns" 
-			  			[matColumnDef]="column.header">
+                    [matSortDisableClear]="definition.sortDisableClear">  -->
+           
+			<ng-container *ngFor="let column of definition.columns" [matColumnDef]="column.header">
 				<th *matHeaderCellDef class="table-header" 
 									mat-sort-header
 									[disabled]="!column.sort" 

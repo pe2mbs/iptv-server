@@ -25,6 +25,7 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { GcScreenBase } from 'src/app/gencrud/crud/crud.screen.base';
 import { LanguageTranslationsDataService } from './service';
 import { LanguageTranslationsRecord } from './model';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 
 @Component({
@@ -38,9 +39,10 @@ export class ScreenLanguageTranslationsComponent extends GcScreenBase<LanguageTr
 
     constructor( route: ActivatedRoute
                , dataService: LanguageTranslationsDataService
-  )
+               , profileService: GcProfileService
+    )
     {
-        super( route, dataService );
+        super( 'ScreenLanguageTranslationsComponent', route, dataService, profileService );
         this.row = new LanguageTranslationsRecord();
         this.formGroup = new FormGroup( {
             LT_LABEL: new FormControl( this.row.LT_LABEL || '',

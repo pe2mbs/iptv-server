@@ -29,6 +29,7 @@ import { UserRecord } from './model';
 import { GcSelectList } from 'src/app/gencrud/crud/model';
 import { RoleDataService } from '../role/service';
 import { LanguagesDataService } from '../languages/service';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -82,10 +83,11 @@ export class ScreenUserComponent extends GcScreenBase<UserRecord> implements OnI
 
     constructor( route: ActivatedRoute
                , dataService: UserDataService
+               , profileService: GcProfileService
                  , public roleService: RoleDataService
                  , public languagesService: LanguagesDataService  )
     {
-        super( route, dataService );
+        super( 'ScreenUserComponent', route, dataService, profileService );
         this.row = new UserRecord();
         this.formGroup = new FormGroup( {
             U_ACTIVE: new FormControl( this.row.U_ACTIVE || false,

@@ -160,19 +160,23 @@ export class ProfileInfo
 
     public setParam( name: string, value: any ): void
     {
-		this.data.objects[ name ] = value;
-		this._dirty = true;
-		console.log( 'setParam'. normalize, value, this._dirty );
-		console.log( 'data', this.data );
+        const stack = new Error().stack;
+        this.data.objects[ name ] = value;
+        this._dirty = true;
+		console.log( 'ProfileInfo::setParam', name, value, '\ndata', this.data );
+        console.log( "PRINTING CALL STACK", stack );
         return;
     }
 
     public getParam( name: string, default_value: any ): any
     {
+        const stack = new Error().stack;
 		if ( isNullOrUndefined( this.data.objects[ name ] ) )
 		{
 			this.data.objects[ name ] = default_value;
-		}
+        }
+        console.log( 'ProfileInfo::getParam', name, this.data.objects[ name ], '\ndata', this.data );
+        console.log( "PRINTING CALL STACK", stack );
 		return ( this.data.objects[ name ]);
     }
 

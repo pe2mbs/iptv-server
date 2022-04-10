@@ -27,6 +27,7 @@ import { TrackingDataService } from './service';
 import { TrackingRecord } from './model';
 
 import { GcSelectList } from 'src/app/gencrud/crud/model';
+import { GcProfileService } from 'src/app/gencrud/profile/profile.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
@@ -53,9 +54,10 @@ export class ScreenTrackingComponent extends GcScreenBase<TrackingRecord> implem
 
     constructor( route: ActivatedRoute
                , dataService: TrackingDataService
+               , profileService: GcProfileService
   )
     {
-        super( route, dataService );
+        super( 'ScreenTrackingComponent', route, dataService, profileService );
         this.row = new TrackingRecord();
         this.formGroup = new FormGroup( {
             T_USER: new FormControl( this.row.T_USER || '',
