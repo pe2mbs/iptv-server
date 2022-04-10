@@ -18,9 +18,9 @@
 #
 #   gencrud: 2021-04-04 08:26:08 version 2.1.680 by user mbertens
 #
-import webapp.api as API
-from webapp.common.dbmem import DbBaseMemory
-from webapp.common.crudmixin import CrudModelMixin
+import webapp2.api as API
+from webapp2.common.dbmem import DbBaseMemory
+from webapp2.common.crudmixin import CrudModelMixin
 
 
 
@@ -49,7 +49,7 @@ class Languages( API.db.Model, CrudModelMixin ):
         return LanguagesMemory( self )
 
 
-API.dbtables.register( Languages )
+# API.dbtables.register( Languages )
 
 
 class LanguagesMemory( DbBaseMemory ):
@@ -57,4 +57,4 @@ class LanguagesMemory( DbBaseMemory ):
     __tablename__       = 'language'
 
 
-API.memorytables.register( LanguagesMemory )
+# API.memorytables.register( LanguagesMemory )

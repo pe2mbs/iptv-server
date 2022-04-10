@@ -18,9 +18,9 @@
 #
 #   gencrud: 2021-04-04 08:26:08 version 2.1.680 by user mbertens
 #
-import webapp.api as API
-from webapp.common.dbmem import DbBaseMemory
-from webapp.common.crudmixin import CrudModelMixin
+import webapp2.api as API
+from webapp2.common.dbmem import DbBaseMemory
+from webapp2.common.crudmixin import CrudModelMixin
 
 
 
@@ -43,7 +43,7 @@ class LanguageReference( API.db.Model, CrudModelMixin ):
         return LanguageReferenceMemory( self )
 
 
-API.dbtables.register( LanguageReference )
+# API.dbtables.register( LanguageReference )
 
 
 class LanguageReferenceMemory( DbBaseMemory ):
@@ -51,4 +51,4 @@ class LanguageReferenceMemory( DbBaseMemory ):
     __tablename__       = 'language_reference'
 
 
-API.memorytables.register( LanguageReferenceMemory )
+# API.memorytables.register( LanguageReferenceMemory )

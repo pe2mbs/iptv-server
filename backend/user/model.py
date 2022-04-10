@@ -18,9 +18,9 @@
 #
 #   gencrud: 2021-04-04 08:26:10 version 2.1.680 by user mbertens
 #
-import webapp.api as API
-from webapp.common.dbmem import DbBaseMemory
-from webapp.common.crudmixin import CrudModelMixin
+import webapp2.api as API
+from webapp2.common.dbmem import DbBaseMemory
+from webapp2.common.crudmixin import CrudModelMixin
 
 
 
@@ -53,7 +53,7 @@ class User( API.db.Model, CrudModelMixin ):
         return UserMemory( self )
 
 
-API.dbtables.register( User )
+# API.dbtables.register( User )
 
 
 class UserMemory( DbBaseMemory ):
@@ -61,4 +61,4 @@ class UserMemory( DbBaseMemory ):
     __tablename__       = 'user'
 
 
-API.memorytables.register( UserMemory )
+# API.memorytables.register( UserMemory )

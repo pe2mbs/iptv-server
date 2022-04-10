@@ -25,7 +25,7 @@ import traceback
 from sqlalchemy import desc
 import importlib
 from flask import Blueprint, jsonify
-import webapp.api as API
+import webapp2.api as API
 from backend.models import *
 
 __version__     = '0.0.0'
@@ -48,6 +48,8 @@ def discoverModules():
             logger.info( "Loading module: {}".format( module.__name__ ) )
             modules.append( module )
 
+    from iptv.main import discoverModules as iptvDiscoverModules
+    modules.extend( iptvDiscoverModules() )
     return modules
 
 
@@ -141,10 +143,10 @@ def registerSubMenu( menu, *args, before = None, after = None ):
 
 def registerApi( app, cors ):
     logger = app.logger
-    with open( os.path.join( os.path.dirname( __file__ ),'menu.yaml' ),'r' ) as stream:
+    with open( os.path.join( os.path.dirname( __file__ ), 'menu.yaml' ),'r' ) as stream:
         API.menuItems = yaml.load( stream,Loader = yaml.Loader )
 
-    releaseFile = os.path.join( os.path.dirname( __file__ ),'release.yaml' )
+    releaseFile = os.path.join( os.path.dirname( __file__ ), 'release.yaml' )
     if os.path.isfile( releaseFile ):
         with open( releaseFile,'r' ) as stream:
             API.applicInfo = yaml.load( stream,Loader = yaml.Loader )

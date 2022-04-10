@@ -8,3 +8,5 @@ from backend.role import Role, RoleMemory
 from backend.role_access import RoleAccess, RoleAccessMemory
 from backend.mod_access import ModuleAccess, ModuleAccessMemory
 from backend.news import News, NewsMemory
+from iptv.models import *
+

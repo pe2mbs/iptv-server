@@ -1,5 +1,5 @@
 from flask import jsonify
-import webapp.api as API
+import webapp2.api as API
 
 
 class NewsMixinInterface( object ):

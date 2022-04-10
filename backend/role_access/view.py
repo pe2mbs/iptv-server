@@ -19,8 +19,8 @@
 #   gencrud: 2021-04-04 08:27:09 version 2.1.680 by user mbertens
 #
 from flask import Blueprint, request, jsonify
-import webapp.api as API
-from webapp.common.crud import CrudInterface, RecordLock
+import webapp2.api as API
+from webapp2.common.crud import CrudInterface, RecordLock
 import traceback
 from backend.role_access.model import RoleAccess
 from backend.role_access.schema import RoleAccessSchema
@@ -32,7 +32,7 @@ role_accessApi = Blueprint( 'role_accessApi', __name__ )
 # Args is for downwards compatibility !!!!!
 def registerApi( *args ):
     # Set the logger for the users module
-    API.app.logger.info( 'Register RoleAccess routes' )
+    API.logger.info( 'Register RoleAccess routes' )
     API.app.register_blueprint( role_accessApi )
     try:
         import backend.role_access.entry_points  as EP

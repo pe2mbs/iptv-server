@@ -1,8 +1,10 @@
 children:
--   caption: Dashboard
-    icon: dashboard
-    id: 19C9dffgg38E52455F0F23FF90FE74038
-    route: '/'
+-   caption:        Dashboard
+    icon:           dashboard
+    id:             19C9dffgg38E52455F0F23FF90FE74038
+    route:          '/'
+-   caption:        IPTV
+    children:       !include ../iptv/menu.yaml
 -   caption: Administration
     children:
     -   caption: News
@@ -42,9 +44,4 @@ children:
         -   caption:  Data usage
             icon: data_usage
             id: 19C95EB738E52DA7F0F23FF90FE74038
-            icon: settings
-            id: 7258E7251413465E0A3EB58094430BDE
-    -   caption: Demo
-        icon: settings
-        id: 19C95EB738E52455F0F23FF90FE74038
-        route: /demo
+            route: /datausage

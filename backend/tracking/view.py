@@ -19,8 +19,8 @@
 #   gencrud: 2021-04-04 08:26:09 version 2.1.680 by user mbertens
 #
 from flask import Blueprint, request, jsonify
-import webapp.api as API
-from webapp.common.crud import CrudInterface, RecordLock
+import webapp2.api as API
+from webapp2.common.crud import CrudInterface, RecordLock
 import traceback
 from backend.tracking.model import Tracking
 from backend.tracking.schema import TrackingSchema

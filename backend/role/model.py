@@ -18,9 +18,9 @@
 #
 #   gencrud: 2021-04-04 08:26:09 version 2.1.680 by user mbertens
 #
-import webapp.api as API
-from webapp.common.dbmem import DbBaseMemory
-from webapp.common.crudmixin import CrudModelMixin
+import webapp2.api as API
+from webapp2.common.dbmem import DbBaseMemory
+from webapp2.common.crudmixin import CrudModelMixin
 
 
 
@@ -40,7 +40,7 @@ class Role( API.db.Model, CrudModelMixin ):
         return RoleMemory( self )
 
 
-API.dbtables.register( Role )
+# API.dbtables.register( Role )
 
 
 class RoleMemory( DbBaseMemory ):
@@ -48,4 +48,4 @@ class RoleMemory( DbBaseMemory ):
     __tablename__       = 'roles'
 
 
-API.memorytables.register( RoleMemory )
+# API.memorytables.register( RoleMemory )

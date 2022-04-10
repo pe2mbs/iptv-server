@@ -1,6 +1,6 @@
 from flask import request, jsonify
-from sqlalchemy.orm.exc import NoResultFound
-import webapp.api as API
+from sqlalchemy.orm.exc import NoResultFound, MultipleResultsFound
+import webapp2.api as API
 from backend.languages.model import Languages
 from backend.language_reference.model import LanguageReference
 from backend.language_translates.model import LanguageTranslations
@@ -27,12 +27,15 @@ class LanguagesViewMixin( object ):
 
         try:
             translateRecord: LanguageTranslations = API.db.session.query( LanguageTranslations ).\
-                                filter( LanguageTranslations.LT_LABEL == text ).one()
+                                filter( LanguageTranslations.LT_LABEL == text.strip() ).one()
 
         except NoResultFound:
-            translateRecord = LanguageTranslations( LT_LABEL = text )
+            translateRecord = LanguageTranslations( LT_LABEL = text.strip() )
             API.db.session.add( translateRecord )
             API.db.session.commit()
+
+        except MultipleResultsFound:
+            API.logger.error( f"{text.strip()} multiple records found." )
 
         try:
             API.db.session.query( LanguageReference, LanguageTranslations ). \
@@ -43,7 +46,7 @@ class LanguagesViewMixin( object ):
         except NoResultFound:
             referenceRecord = LanguageReference( LR_LA_ID = languageRecord.LA_ID,
                                                  LR_LT_ID = translateRecord.LT_ID,
-                                                 TR_TEXT = text )
+                                                 TR_TEXT = text.strip() )
             API.db.session.add( referenceRecord )
             API.db.session.commit()
 

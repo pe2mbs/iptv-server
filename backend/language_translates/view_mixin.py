@@ -1,7 +1,7 @@
 from flask import request, jsonify
 from sqlalchemy.orm.exc import NoResultFound
 from sqlalchemy.exc import IntegrityError
-import webapp.api as API
+import webapp2.api as API
 
 
 class LangTranslateViewMixin( object ):
