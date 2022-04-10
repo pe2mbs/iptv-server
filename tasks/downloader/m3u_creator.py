@@ -1,9 +1,12 @@
 import os
 import tasks.api as API
-from tasks.downloader.tables import *
 from tasks.m3u import M3URecord, M3USerializer
 from tasks.common.task import startup
-
+from backend.bouget.model import Bouget
+from backend.channel.model import Channel
+from backend.movie.model import Movie
+from backend.serie.model import Serie
+from backend.episode.model import Episode
 
 class M3UCreator():
     def __init__( self, filename: str, index_filename = None ):
@@ -20,13 +23,13 @@ class M3UCreator():
             index_stream = None
 
         record = M3URecord()
-        for bouget in API.Db.Query( IptvBouget ).filter( IptvBouget.IB_ENABLED ).all():
+        for bouget in API.Db.Query( Bouget ).filter( Bouget.IB_ENABLED ).all():
             if index_stream:
                 index_stream.write( f'IPTV: {bouget.IB_NAME}\n' )
 
-            for channel in API.Db.Query( IptvChannel ).filter( bouget.IB_ID == IptvChannel.IC_IB_ID ). \
-                                                        order_by( IptvChannel.IC_INDEX, IptvChannel.IC_ID ).all():
-                channel: IptvChannel
+            for channel in API.Db.Query( Channel ).filter( bouget.IB_ID == Channel.IC_IB_ID ). \
+                                                        order_by( Channel.IC_INDEX, Channel.IC_ID ).all():
+                channel: Channel
                 record.get( channel )
                 self.__stream.write( record )
                 if index_stream:
@@ -35,8 +38,8 @@ class M3UCreator():
                 record.clear()
 
         last = ''
-        for movie in API.Db.Query( IptvMovie ).filter( IptvMovie.IM_ENABLED ).order_by( IptvMovie.IM_GROUP, IptvMovie.IM_NAME ).all():
-            movie: IptvMovie
+        for movie in API.Db.Query( Movie ).filter( Movie.IM_ENABLED ).order_by( Movie.IM_GROUP, Movie.IM_NAME ).all():
+            movie: Movie
             record.get( movie )
             if index_stream:
                 if last != record.Group:
@@ -49,14 +52,14 @@ class M3UCreator():
             record.clear()
 
         last = ''
-        for serie in API.Db.Query( IptvSerie ).filter( IptvSerie.IS_ENABLED ).order_by( IptvSerie.IS_NAME ).all():
-            serie: IptvSerie
+        for serie in API.Db.Query( Serie ).filter( Serie.IS_ENABLED ).order_by( Serie.IS_NAME ).all():
+            serie: Serie
             if index_stream:
                 index_stream.write( f'Serie: {serie.IS_NAME}\n' )
 
-            for episode in API.Db.Query( IptvEpisode ).filter( IptvEpisode.IE_IS_ID == serie.IS_ID ).\
-                                                    order_by( IptvEpisode.IE_SEASON, IptvEpisode.IE_EPISODE ).all():
-                episode: IptvSerie
+            for episode in API.Db.Query( Episode ).filter( Episode.IE_IS_ID == serie.IS_ID ).\
+                                                    order_by( Episode.IE_SEASON, Episode.IE_EPISODE ).all():
+                episode: Episode
                 record.get( episode )
                 self.__stream.write( record )
                 if index_stream:

@@ -1,6 +1,10 @@
 import re
 from enum import Enum
-from tasks.downloader.tables import *
+from backend.movie.model import Movie
+from backend.serie.model import Serie
+from backend.bouget.model import Bouget
+from backend.episode.model import Episode
+from backend.channel.model import Channel
 
 
 class M3uItemType( Enum ):
@@ -167,7 +171,7 @@ class M3URecord( object ):
         return False
 
     def get( self, data ):
-        if isinstance( data, IptvChannel ):
+        if isinstance( data, Channel ):
             self.__type         = M3uItemType.IPTV_CHANNEL
             if isinstance( data.IC_ALIAS, str ) and data.IC_ALIAS != '':
                 self.__name         = data.IC_ALIAS
@@ -183,7 +187,7 @@ class M3URecord( object ):
             self.__tvg_logo     = data.IC_TVG_LOGO
             self.__tvg_name     = data.IC_TVG_NAME
 
-        elif isinstance( data, IptvEpisode ):
+        elif isinstance( data, Episode ):
             self.__type         = M3uItemType.SERIE_EPISODE
             self.__name         = data.IE_NAME
             self.__country      = data.IE_COUNTRY
@@ -194,7 +198,7 @@ class M3URecord( object ):
             self.__tvg_logo     = data.IE_TVG_LOGO
             self.__tvg_name     = data.IE_TVG_NAME
 
-        elif isinstance( data, IptvMovie ):
+        elif isinstance( data, Movie ):
             self.__type         = M3uItemType.MOVIE
             self.__name         = data.IM_NAME
             self.__group        = data.IM_GROUP
@@ -211,7 +215,7 @@ class M3URecord( object ):
         return
 
     def put( self, data ):
-        if isinstance( data, IptvChannel ) and self.__type == M3uItemType.IPTV_CHANNEL:
+        if isinstance( data, Channel ) and self.__type == M3uItemType.IPTV_CHANNEL:
             data.IC_NAME        = self.__name
             data.IC_GROUP       = self.__group
             data.IC_COUNTRY     = self.__country
@@ -221,15 +225,15 @@ class M3URecord( object ):
             data.IC_TVG_LOGO    = self.__tvg_logo
             data.IC_TVG_NAME    = self.__tvg_name
 
-        elif isinstance( data, IptvBouget ) and self.__type == M3uItemType.IPTV_CHANNEL:
+        elif isinstance( data, Bouget ) and self.__type == M3uItemType.IPTV_CHANNEL:
             data.IB_NAME        = self.__group
             data.IB_COUNTRY     = self.__country
 
-        elif isinstance( data, IptvSerie ) and self.__type == M3uItemType.SERIE_EPISODE:
+        elif isinstance( data, Serie ) and self.__type == M3uItemType.SERIE_EPISODE:
             data.IS_NAME        = self.__group
             data.IS_COUNTRY     = self.__country
 
-        elif isinstance( data, IptvEpisode ) and self.__type == M3uItemType.SERIE_EPISODE:
+        elif isinstance( data, Episode ) and self.__type == M3uItemType.SERIE_EPISODE:
             data.IE_NAME        = self.__name
             data.IE_GROUP       = self.__group
             data.IE_COUNTRY     = self.__country
@@ -241,7 +245,7 @@ class M3URecord( object ):
             data.IE_TVG_NAME    = self.__tvg_name
             data.IE_TVG_LOGO    = self.__tvg_logo
 
-        elif isinstance( data, IptvMovie ) and self.__type == M3uItemType.MOVIE:
+        elif isinstance( data, Movie ) and self.__type == M3uItemType.MOVIE:
             data.IM_NAME        = self.__name
             data.IM_GROUP       = self.__group
             data.IM_COUNTRY     = self.__country
