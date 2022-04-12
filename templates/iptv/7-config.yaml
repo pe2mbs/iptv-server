@@ -6,7 +6,9 @@ objects:
     uri:                      /api/config
     menu:
       caption:                Configuration
-      icon:                   settings
+      icon:                   display_settings
+      after:                  Alias
+      before:                 null
       index:                  0
       route:                  /config
     actions:

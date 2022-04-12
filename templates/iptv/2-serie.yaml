@@ -6,7 +6,9 @@ objects:
     uri:                      /api/serie
     menu:
       caption:                Series
-      icon:                   settings
+      icon:                   video_library
+      before:                 Episodes
+      after:                  Channel
       index:                  0
       route:                  /serie
     actions:

@@ -6,7 +6,9 @@ objects:
     uri:                      /api/channel
     menu:
       caption:                Channel
-      icon:                   settings
+      icon:                   tv
+      before:                 Series
+      after:                  Alias
       index:                  0
       route:                  /channel
     actions:

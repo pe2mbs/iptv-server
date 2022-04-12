@@ -6,7 +6,9 @@ objects:
     uri:                      /api/bouget
     menu:
       caption:                Bouget
-      icon:                   settings
+      icon:                   library_books
+      before:                 Channel
+      after:                  null
       index:                  0
       route:                  /bouget
     actions:

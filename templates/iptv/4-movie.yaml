@@ -1,14 +1,16 @@
 project_defaults:             !include include/iptv-defaults.yaml
 objects:
-  - name:                     episode
-    title:                    Episodes
-    class:                    Episode
-    uri:                      /api/episode
+  - name:                     movie
+    title:                    Movies
+    class:                    Movie
+    uri:                      /api/movie
     menu:
-      caption:                Episodes
-      icon:                   settings
+      caption:                Movies
+      icon:                   movie
+      before:                 Replace
+      after:                  Episodes
       index:                  0
-      route:                  /episode
+      route:                  /movie
     actions:
       - !include include/default-action-add.yaml
       - !include include/default-action-edit.yaml
@@ -17,72 +19,74 @@ objects:
         type:                 dialog
         icon:                 delete
         position:             cell
-        function:             core.deleteRecord( idx, row, 'IE_ID', 'Episode', 'IE_NAME'  )
+        function:             core.deleteRecord( idx, row, 'IS_ID', 'Movie', 'IS_NAME'  )
     table:
-      name:                   EPISODE
-      labels:
-        - General
-        - M3U
+      name:                   MOVIE
+      tabs:
+        labels:
+          - General
+          - M3U
       columns:
-        - field:              IE_ID               INT             AUTO NUMBER   PRIMARY KEY
-        - field:              IE_NAME             CHAR( 64 )      NOT NULL
+        - field:              IM_ID               INT             AUTO NUMBER     PRIMARY KEY
+        - field:              IM_ENABLED          BOOLEAN         DEFAULT 0
+          label:              Enabled
+          ui:
+            type:             checkbox
+            resolve-list:
+              true:           "Yes"
+              false:          "No"
+          listview:
+            index:            0
+            width:            10%
+            sort:             true
+            filter:           true
+          tab:
+            index:            0
+            label:            General
+        - field:              IM_NAME             CHAR( 64 )      NOT NULL
           label:              Name
           ui:
             type:             textbox
           listview:
-            index:            0
+            index:            1
             width:            40%
             sort:             true
             filter:           true
           tab:
-            index:            0
+            index:            1
             label:            General
-        - field:              IE_GROUP            CHAR( 64 )      NOT NULL
-          label:              Group
-          readonly:           true
+        - field:              IM_STITLE           CHAR( 128 )     NULL
+          label:              Extra title
           ui:
             type:             textbox
           tab:
-            index:            1
-            label:            General
-        - field:              IE_SEASON           INT             NOT NULL
-          label:              Season
-          ui:
-            type:             number
-          listview:
-            index:            1
-            width:            5%
-            sort:             true
-            filter:           true
-          tab:
             index:            2
             label:            General
-        - field:              IE_EPISODE          INT             NOT NULL
-          label:              Episode
+        - field:              IM_GROUP            CHAR( 64 )      NOT NULL
+          label:              Group
           ui:
-            type:             number
+            type:             textbox
           listview:
             index:            2
-            width:            5%
+            width:            40%
             sort:             true
             filter:           true
           tab:
             index:            3
             label:            General
-        - field:              IE_IS_ID            INT             FOREIGN KEY SERIE.IS_ID   NOT NULL
-          label:              Serie
-          readonly:           true
+        - field:              IM_INDEX            INT             DEFAULT 9999
+          label:              Index
           ui:
-            type:             choice
-            service:
-              name:           serie
-              class:          Serie
-              value:          IS_ID
-              label:          IS_NAME
+            type:             number
+          listview:
+            index:            3
+            width:            10%
+            sort:             true
+            filter:           true
           tab:
             index:            4
             label:            General
-        - field:              IE_UPDATE           DATETIME        NULL
+        - field:              IM_UPDATE           DATETIME        NULL
           label:              Update timestamp
           readonly:           true
           ui:
@@ -90,7 +94,7 @@ objects:
           tab:
             index:            5
             label:            General
-        - field:              IE_DURATION         INT             NULL
+        - field:              IM_DURATION         INT             NULL
           label:              Duration
           readonly:           true
           ui:
@@ -98,46 +102,46 @@ objects:
           tab:
             index:            0
             label:            M3U
-        - field:              IE_LINK             CHAR( 255 )     NOT NULL
+        - field:              IM_LINK             CHAR( 255 )     NOT NULL
           label:              Link
           ui:
             type:             textbox
           tab:
             index:            1
             label:            M3U
-        - field:              IE_TVG_ID           CHAR( 64 )      NULL
+        - field:              IM_TVG_ID           CHAR( 64 )      NULL
           label:              TVG-ID
           ui:
             type:             textbox
           tab:
             index:            2
             label:            M3U
-        - field:              IE_TVG_LOGO         CLOB            NULL
+        - field:              IM_TVG_LOGO         CLOB            NULL
           label:              TVG-LOGO
           ui:
             type:             textbox
           tab:
             index:            3
             label:            M3U
-        - field:              IE_TVG_NAME         CHAR( 64 )      NULL
+        - field:              IM_TVG_NAME         CHAR( 64 )      NULL
           label:              TVG-NAME
           ui:
             type:             textbox
           tab:
             index:            4
             label:            M3U
-        - field:              IE_TVG_ATTR         CLOB            NULL
+        - field:              IM_TVG_ATTR         CLOB            NULL
           label:              TVG-ATTRIBUTES
           readonly:           true
           ui:
             type:             textbox
           tab:
-            index:            4
+            index:            5
             label:            M3U
-        - field:              IE_LOCALE           CHAR( 5 )       NULL
+        - field:              IM_LOCALE           CHAR( 5 )       NULL
           label:              Locale
           ui:
             type:             textbox
           tab:
-            index:            5
+            index:            6
             label:            M3U

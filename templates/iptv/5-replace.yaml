@@ -6,7 +6,9 @@ objects:
     uri:                      /api/replace
     menu:
       caption:                Replace
-      icon:                   settings
+      icon:                   find_replace
+      after:                  Movies
+      before:                 Alias
       index:                  0
       route:                  /replace
     actions:

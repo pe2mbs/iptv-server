@@ -50,6 +50,7 @@
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
+              "src/fonts.scss",
               "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [
@@ -118,7 +119,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/fonts.scss"
             ],
             "scripts": []
           }

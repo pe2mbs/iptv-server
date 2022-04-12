@@ -6,7 +6,9 @@ objects:
     uri:                      /api/alias
     menu:
       caption:                Alias
-      icon:                   settings
+      icon:                   repeat
+      after:                  Replace
+      before:                 Configuration
       index:                  0
       route:                  /alias
     actions:

@@ -20,7 +20,7 @@ export class GcNavSidebarComponent implements OnInit
         return;
     }
 
-    ngOnInit(): void
+    public ngOnInit(): void
     {
         this.navService.menuItems().subscribe( response => this.navItems = response );
         return;

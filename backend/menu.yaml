@@ -1,47 +1,49 @@
 children:
--   caption:        Dashboard
-    icon:           dashboard
-    id:             19C9dffgg38E52455F0F23FF90FE74038
-    route:          '/'
--   caption:        IPTV
-    children:       !include ../iptv/menu.yaml
--   caption: Administration
+-   caption:            Dashboard
+    icon:               dashboard
+    id:                 19C9dffgg38E52455F0F23FF90FE74038
+    route:              '/'
+-   caption:            IPTV
+    icon:               tv
+    children:           !include ../iptv/menu.yaml
+-   caption:            Administration
+    icon:               settings
     children:
-    -   caption: News
-        icon: group_work
-        id: B7492E0CF976532AEA95A77BC98DCD63
-        route: '/news'
-    -   caption: Languages
-        icon: languages
-        id: 127709D66303C0BEAE01573E304384E7
-        route: /languages
-    -   caption: Translations
-        icon: translate
-        id: 63365BF761E78C0E7FC3ACEA312D7710
-        route: /language_translates
-    -   caption: Users
-        icon: accessibility
-        id: F19874EA16DB0675ABBE9EC7DB1F341A
-        route: /user
-    -   caption: Roles
-        icon: group_work
-        id: BBD58F23590A9F3AAED4D61B35C4BA9E
-        route: /role
-    -   caption: Role Access
-        icon: group_work
-        id: 46EC03C6D0334791BF11FFF80DF0DF5B
-        route: /role_access
-    -   caption: DataBase
+    -   caption:        News
+        icon:           group_work
+        id:             B7492E0CF976532AEA95A77BC98DCD63
+        route:          '/news'
+    -   caption:        Languages
+        icon:           languages
+        id:             127709D66303C0BEAE01573E304384E7
+        route:          /languages
+    -   caption:        Translations
+        icon:           translate
+        id:             63365BF761E78C0E7FC3ACEA312D7710
+        route:          /language_translates
+    -   caption:        Users
+        icon:           accessibility
+        id:             F19874EA16DB0675ABBE9EC7DB1F341A
+        route:          /user
+    -   caption:        Roles
+        icon:           group_work
+        id:             BBD58F23590A9F3AAED4D61B35C4BA9E
+        route:          /role
+    -   caption:        Role Access
+        icon:           switch_access_shortcut
+        id:             46EC03C6D0334791BF11FFF80DF0DF5B
+        route:          /role_access
+    -   caption:        DataBase
         children:
-        -   caption: Record locks
-            icon: lock
-            id: BE9FEC720351A0A2BD63F289C2FBB9F2
-            route: /locking
-        -   caption: Record changes
-            icon: track_changes
-            id: 49C89CF0D0D30046026872A2DB4A828D
-            route: /tracking
-        -   caption:  Data usage
-            icon: data_usage
-            id: 19C95EB738E52DA7F0F23FF90FE74038
-            route: /datausage
+        -   caption:    Record locks
+            icon:       lock
+            id:         BE9FEC720351A0A2BD63F289C2FBB9F2
+            route:      /locking
+        -   caption:    Record changes
+            icon:       track_changes
+            id:         49C89CF0D0D30046026872A2DB4A828D
+            route:      /tracking
+        -   caption:    Data usage
+            icon:       data_usage
+            id:         19C95EB738E52DA7F0F23FF90FE74038
+            route:      /datausage
