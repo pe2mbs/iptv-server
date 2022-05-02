@@ -1,0 +1,33 @@
+linux:
+  source:
+    base:                       /home/mbertens/src/python/iptv_m3u_server
+    python:                     .
+    angular:                    frontend-v10/src/app
+  template:
+    base:                       /home/mbertens/src/python/iptv_m3u_server/templates/gencrud-v10
+    python:                     python
+    angular:                    angular
+    common:
+      base:                     /home/mbertens/src/python/iptv_m3u_server/templates/gencrud-v10/common
+      python:                   python
+      angular:                  angular
+#  target:
+#    base:                       /home/mbertens/src/python/iptv_m3u_server
+#    python:                     plugins
+#    angular:                    frontend-v10/src/app/plugins
+application:                    iptv
+options:
+  ignore-case-db-ids:           true
+  overwrite:                    true
+  use-module:                   true
+  copy-support-files:           false
+  use-local-template:           true
+references:
+  app-module:
+    filename:                   app.module.ts
+    class:                      AppModule
+    module:                     app.module.ts
+  app-routing:
+    filename:                   app.routingmodule.ts
+    class:                      AppRoutingModule
+    module:                     app.routingmodule.ts

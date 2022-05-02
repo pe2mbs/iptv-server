@@ -14,6 +14,12 @@ objects:
     actions:
       - !include include/default-action-add.yaml
       - !include include/default-action-edit.yaml
+      - name:                 view
+        label:                View movie
+        type:                 api
+        icon:                 tv
+        position:             cell
+        function:             viewMovie( idx, row )
       - name:                 delete
         label:                Delete
         type:                 dialog

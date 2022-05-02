@@ -14,6 +14,12 @@ objects:
     actions:
       - !include include/default-action-add.yaml
       - !include include/default-action-edit.yaml
+      - name:                 view
+        label:                View channel
+        type:                 api
+        icon:                 tv
+        position:             cell
+        function:             viewChannel( idx, row )
       - name:                 delete
         label:                Delete
         type:                 dialog

@@ -11,7 +11,6 @@ class LanguagesViewMixin( object ):
         self.useJWT = False
         self.registerRoute( 'i18n/<language>', self.getLanguage, methods = [ 'GET' ] )
         self.registerRoute( 'i18n/missing', self.missingTranslation, methods = [ 'POST' ] )
-
         return
 
     def missingTranslation( self ):
